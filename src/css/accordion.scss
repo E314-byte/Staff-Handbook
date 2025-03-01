@@ -1,0 +1,45 @@
+.accordion {
+  list-style-type: none;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #dcdcdc;
+  border-radius: 1rem;
+}
+.accordion-item {
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  &:last-child {
+    margin-bottom: 0rem;
+  }
+}
+
+.accordion-header {
+  position: relative;
+  width: 100%;
+  padding: 20px 60px 20px 30px;
+  background-color: #fff;
+  border: 0;
+  border-radius: 1rem;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordion-collapse {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s;
+}
+.accordion-collapse.open {
+  height: auto;
+}
+
+.accordion-body {
+  padding: 30px 60px 30px 30px;
+  background-color: #f1f1f1;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  font-size: 1rem;
+  color: #393939;
+}

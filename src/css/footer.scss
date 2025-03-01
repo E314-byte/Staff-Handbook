@@ -1,0 +1,35 @@
+$color: #333333;
+$additional: #00d8ff;
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: $color;
+  color: #fff;
+  margin-top: 2rem;
+  //   background-color: $color;
+}
+.logo {
+  height: 3rem;
+  width: auto;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.header-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.menu-item {
+  padding: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    border-bottom: 1px solid $additional;
+  }
+}

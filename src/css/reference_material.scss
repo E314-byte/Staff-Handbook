@@ -1,0 +1,31 @@
+// .container {
+//     margin: 3rem 2rem;
+// }
+.reference_material {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  font-size: 2rem;
+  margin: 3rem 0rem;
+}
+.title-item {
+  margin: 0rem 3rem;
+}
+.item {
+  margin: 0.5rem;
+  line-height: 2rem;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid #00d8ff;
+  }
+  p {
+    text-indent: 1.5rem;
+  }
+  ol {
+    padding-left: 1rem;
+    list-style-position: inside;
+  }
+}
