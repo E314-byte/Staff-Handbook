@@ -1,0 +1,42 @@
+.question {
+  margin: 2rem 5rem;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin: 1rem 2rem;
+  padding: 1rem 2rem;
+  background-color: #dcdcdc;
+  //   border: 2rem solid #dcdcdc;
+  border-radius: 2rem;
+}
+
+label {
+  background-color: #fff;
+  border-radius: 2rem;
+  &:nth-child(1n) {
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+}
+
+input {
+  margin-right: 0.5rem;
+}
+
+.button_test {
+  background-color: transparent;
+  border: 1px solid #00d8ff;
+  border-radius: 3rem;
+  padding: 1rem;
+  margin: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #00d8ff;
+    color: #fff;
+    transition: all 0.3s linear;
+  }
+}

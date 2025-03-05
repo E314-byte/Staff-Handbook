@@ -10,7 +10,7 @@ function Header () {
             <Link to="/"><img src={logo} className="logo" alt="React logo"/></Link>
             <div className="header-menu">
                 <div className="menu-item"><Link to="/">Главная</Link></div>
-                <div className="menu-item">Тест</div>
+                <div className="menu-item"><Link to="/test">Тест</Link></div>
                 <div className="menu-item"><Link to="/reference_material">Справочный материал</Link></div>
                 <div className="menu-item">Видио уроки</div>
                 <div className="menu-item">Профиль</div>
