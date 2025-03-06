@@ -3,9 +3,8 @@ class questionsController {
     async createQuestions(req, res) {
         const { text, points } = req.body;
         const newQuestion = await bd.query('INSERT INTO questions ( text, points ) values ($1, $2) RETURNING *', [text, points]);
-        console.log(text, points);
         // Возвращяется очень много лишний инфы 
-        res.json(newQuestion.rows[0]);
+        res.json(newQuestion.rows);
     }
     async getQuestions(req, res) {
         const question = await bd.query('SELECT * FROM questions');

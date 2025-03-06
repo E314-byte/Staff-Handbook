@@ -2,6 +2,7 @@
 const express = require('express');
 const userRouter = require('./API/routes/user.routers.cjs');
 const questionRouter = require('./API/routes/question.routers.cjs');
+const testsRouter = require('./API/routes/tests.routers.cjs');
 
 
 const PORT = process.env.PORT || 8080;
@@ -11,6 +12,7 @@ app.use(express.json());
 
 app.use('/api', userRouter);
 app.use('/api', questionRouter);
+app.use('/api', testsRouter);
 
 app.listen(PORT, () => {
     console.log(`Сервер запушен на порту: ${PORT}`);
