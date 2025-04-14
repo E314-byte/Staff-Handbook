@@ -3,38 +3,37 @@ import Questions from "./questions";
 import axios from "axios";
 import "./../css/staff_test.scss";
 import { Link } from "react-router-dom";
-// import { getTestQuestions } from "../../backend/API/controller/question.controller.cjs";
-// const questionsController = require("../controller/question.controller.cjs");
 
 function Tests() {
-  const src1 = "http://localhost:8080/api/tests/";
+  const src = "http://localhost:8080/api/tests/";
   const [Tests, setTests] = useState([]);
   useEffect(() => {
-    axios.get(src1).then((data) => {
+    axios.get(src).then((data) => {
       setTests(data.data);
     });
   }, []);
 
-  const src = "http://localhost:8080/api/question/";
-  const [Questions, setQuestions] = useState([]);
-  useEffect(() => {
-    axios.get(src).then((data) => {
-      setQuestions(data.data);
-    });
-  }, []);
+  // const src = "http://localhost:8080/api/question/";
+  // const [Questions, setQuestions] = useState([]);
+  // useEffect(() => {
+  //   axios.get(src).then((data) => {
+  //     setQuestions(data.data);
+  //   });
+  // }, []);
 
-  const clickTest = (Questions, Tests) => {
-    // alert("привет епта!");
-    // <Questions />;
-  };
+  //ты сдесь
+  // useEffect(() => {
+  //   const QAT = Questions.filter((Questions) => Questions.test_id == 4);
+  //   setQuestionsAndTest(QAT);
+  // }, []);
 
   return (
     <>
       <section>
         <div className="answers">
-          {Tests.filter((tests) => (
+          {Tests.map((tests) => (
             <label className="answer">
-              <Link to="/questions" onClick={clickTest}>
+              <Link to="/questions" >
                 <div key={tests.test_id}>
                   {tests.test_id}
                   {tests.title}

@@ -1,39 +1,35 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import App from "../App";
 import "./../css/staff_test.scss";
 
-function Questions() {
+function Questions({ setTest }) {
+  const [QuestionsAndTest, setQuestionsAndTest] = useState([]);
+
   const src = "http://localhost:8080/api/question/";
   const [Questions, setQuestions] = useState([]);
   useEffect(() => {
     axios.get(src).then((data) => {
-      // console.log(data.data);
+      console.log(data.data);
       setQuestions(data.data);
     });
   }, []);
-
-  const src1 = "http://localhost:8080/api/tests/";
-  const [Tests, setTests] = useState([]);
   useEffect(() => {
-    axios.get(src1).then((data) => {
-      setTests(data.data);
-    });
-  }, []);
-
-  const clickTest = (Questions, Tests) => {
-    // alert("привет епта!");
-    console.log(Questions, Tests, 1);
-
-    // <Questions />;
-  };
+    const qat = Questions.filter((sss) => sss.test_id == setTest);
+    console.log(qat);
+    console.log(setQuestionsAndTest);
+    console.log(QuestionsAndTest);
+    setQuestionsAndTest(qat);
+  }, [Questions]);
 
   return (
     <>
       <section>
-        {Questions.map((question) => (
+        {QuestionsAndTest.map((question) => (
           <div className="question">
             <div key={question.question_id}>
-              <h1 onClick={clickTest}>{question.text}</h1>
+              <h1>{question.text}</h1>
+              <h1>{question.test_id}</h1>
               {/* <p>{question.points}</p> */}
             </div>
             <hr />
