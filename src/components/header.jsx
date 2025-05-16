@@ -12,7 +12,7 @@ function Header () {
                 <div className="menu-item"><Link to="/">Главная</Link></div>
                 <div className="menu-item"><Link to="/test">Тест</Link></div>
                 <div className="menu-item"><Link to="/reference_material">Справочный материал</Link></div>
-                <div className="menu-item">Видио уроки</div>
+                <div className="menu-item">Видео уроки</div>
                 <div className="menu-item">Профиль</div>
             </div>
         </header>
