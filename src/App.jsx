@@ -5,6 +5,7 @@ import Reference_Material from "./pages/reference_material";
 import Staff_Test from "./pages/staff_test";
 import Questions from "./components/questions";
 import Interactive_tasks from "./pages/Interactive_tasks";
+import AdminPanel from "./../backend/Dashboard/AdminPanel";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="/test" element={<Staff_Test />} />
         <Route path="/questions" element={<Questions setTest={4} />} />
         <Route path="/interactive_tasks" element={<Interactive_tasks />} />
+        {/* админ панель */}
+        <Route path="/admin" element={<AdminPanel URL={"user"} />} />
       </Routes>
     </>
   );

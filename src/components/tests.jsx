@@ -33,7 +33,7 @@ function Tests() {
         <div className="answers">
           {Tests.map((tests) => (
             <label className="answer">
-              <Link to="/questions" >
+              <Link to="/questions">
                 <div key={tests.test_id}>
                   {tests.test_id}
                   {tests.title}

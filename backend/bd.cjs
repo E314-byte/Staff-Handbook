@@ -2,7 +2,7 @@ const Pool = require('pg').Pool;
 // пордключение к базе данных
 const pool = new Pool({
     user: "postgres",
-    password: "root",
+    password: "postgres",
     host: "localhost",
     port: 5432,
     database: "staff_handbook"
