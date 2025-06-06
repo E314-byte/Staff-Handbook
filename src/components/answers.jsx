@@ -30,7 +30,7 @@ function Answers({ setTest }) {
             <div key={answer.answer_id}>
               <p>Выберите ответ</p>
               <label className="answer">
-                <input type="radio" name="radio" value={1} />
+                <input type="checkbox" name="checkbox" value={1} />
                 {answer.text}
               </label>
             </div>

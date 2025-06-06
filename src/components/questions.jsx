@@ -6,10 +6,10 @@ import Footer from "../components/footer";
 import App from "../App";
 import "./../css/staff_test.scss";
 
-function Questions({ setTest }) {
+function Questions({ setTest, URL }) {
   const [QuestionsAndTest, setQuestionsAndTest] = useState([]);
 
-  const src = "http://localhost:8080/api/question/";
+  const src = "http://localhost:8080/api/" + URL + "/";
   const [Questions, setQuestions] = useState([]);
   useEffect(() => {
     axios.get(src).then((data) => {
@@ -17,6 +17,7 @@ function Questions({ setTest }) {
       setQuestions(data.data);
     });
   }, []);
+  
   useEffect(() => {
     const qat = Questions.filter((sss) => sss.test_id == setTest);
     console.log(qat);

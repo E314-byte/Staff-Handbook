@@ -4,8 +4,8 @@ import axios from "axios";
 import "./../css/staff_test.scss";
 import { Link } from "react-router-dom";
 
-function Tests() {
-  const src = "http://localhost:8080/api/tests/";
+function Tests({ URL }) {
+  const src = "http://localhost:8080/api/" + URL + "/";
   const [Tests, setTests] = useState([]);
   useEffect(() => {
     axios.get(src).then((data) => {

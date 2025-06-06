@@ -10,7 +10,7 @@ function Staff_Test() {
   return (
     <>
       <Header />
-      <Tests />
+      <Tests URL={"tests"} />
       {/* <Iframe
         url="https://h5p.org/h5p/embed/62814"
         width="1090"
