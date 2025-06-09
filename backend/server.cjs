@@ -1,4 +1,3 @@
-//модули
 const express = require('express');
 const userRouter = require('./API/routes/user.routers.cjs');
 const questionRouter = require('./API/routes/question.routers.cjs');
@@ -24,5 +23,5 @@ app.listen(PORT, () => {
 
 // для проверки сервера
 app.get('/', (req, res) => {
-    res.send('Привет мир!!!!!!!! как дела? что делаешь?fasdasdsdasd')
+    res.send('Привет мир!!!!!!!!')
 })
