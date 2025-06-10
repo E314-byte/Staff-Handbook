@@ -9,8 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "snode": "node ./backend/server.cjs",
-    "snodemon": "nodemon ./backend/server.cjs",
-    "start": "npm run vite && npm run nodemon ./backend/server.cjs"
+    "snodemon": "nodemon ./backend/server.cjs"
   },
   "dependencies": {
     "adminbsb-materialdesign": "^1.0.7",

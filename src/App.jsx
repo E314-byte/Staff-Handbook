@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Home_Page from "./pages/home_page";
+import Registration_and_Login from "./pages/registration_and_login";
 import Reference_Material from "./pages/reference_material";
 import Staff_Test from "./pages/staff_test";
 import Questions from "./components/questions";
@@ -12,6 +13,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home_Page />} />
+        <Route path="/login" element={<Registration_and_Login />} />
         <Route path="/reference_material" element={<Reference_Material />} />
         <Route path="/test" element={<Staff_Test URL={"test"} />} />
         <Route
