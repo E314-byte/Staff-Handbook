@@ -25,9 +25,10 @@ function AdminPanel({ URL }) {
         email,
         password_hash,
       });
-      console.log("что-то получилось");
+      console.log("Данные изменены");
     } catch (error) {
       console.log(error);
+      console.log("не получилось изменить данные");
     }
   };
 
@@ -90,7 +91,7 @@ function AdminPanel({ URL }) {
           </ul>
         </div>
         <div className="content">
-          <div>
+          <div className="table_user_admin">
             <h1>Управление данными пользователей</h1>
             <table>
               <thead>

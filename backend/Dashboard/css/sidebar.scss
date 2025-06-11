@@ -64,9 +64,12 @@ input {
   border-bottom: #333 1px solid;
   :active,
   :hover,
-  :focus {
-    outline: 0;
-    outline-offset: 0;
+  :focus,
+  :focus-visible {
+    border: none;
+    // outline: 0;
+    // outline-offset: 0;
+    // background: transparent;
   }
 }
 
@@ -86,4 +89,8 @@ table {
 }
 tr:nth-child(even) {
   background-color: #5b5b5baf;
+}
+
+.table_user_admin {
+  margin: 2rem;
 }
