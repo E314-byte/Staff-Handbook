@@ -1,9 +1,9 @@
 const bd = require('../../bd.cjs');
 class userController {
     async createUser(req, res) {
-        const { username, email, password_hash } = req.body;
-        const newUsers = await bd.query('INSERT INTO users ( username, email, password_hash ) values ($1, $2, $3) RETURNING *', [username, email, password_hash]);
-        console.log(username, email, password_hash);
+        const { username1, email1, password_hash1 } = req.body;
+        const newUsers = await bd.query('INSERT INTO users ( username, email, password_hash ) values ($1, $2, $3) RETURNING *', [username1, email1, password_hash1]);
+        console.log(username1, email1, password_hash1);
         // Возвращяется очень много лишний инфы 
         res.json(newUsers.rows[0]);
     }

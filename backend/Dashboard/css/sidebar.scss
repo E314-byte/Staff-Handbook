@@ -5,6 +5,7 @@
   height: 100vh;
 }
 
+// боковое меню
 .sidebar {
   //   position: fixed;
   margin-right: 1rem;
@@ -28,6 +29,40 @@
   }
 }
 
+label {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: stretch;
+  border-radius: 2rem;
+  margin: 2rem 2rem;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.fun {
+  margin: 2rem;
+}
+
+input {
+  padding: 20px 0px 5px 0px;
+  border: none;
+  border-bottom: #333 1px solid;
+  :active {
+    border: none;
+    outline: none !important;
+  }
+}
+
+.btn_submit_admin {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #333;
+  color: #fff;
+}
+
 .content {
   padding: 1rem;
 }
@@ -38,4 +73,7 @@ table {
   td {
     padding: 1rem;
   }
+}
+tr:nth-child(even) {
+  background-color: #5b5b5baf;
 }
