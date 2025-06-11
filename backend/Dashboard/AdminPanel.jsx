@@ -112,6 +112,8 @@ function AdminPanel({ URL }) {
                 ))}
               </tbody>
             </table>
+          </div>
+          <div className="reques_fun_queries_database">
             <div className="fun">
               <h1>Изменения данных пользователя</h1>
               {/* <br /> */}

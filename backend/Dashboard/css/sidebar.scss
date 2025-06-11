@@ -3,6 +3,18 @@
   flex-direction: row;
   flex-wrap: wrap;
   height: 100vh;
+  justify-content: flex-start;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.reques_fun_queries_database {
+  margin-left: 20rem;
 }
 
 // боковое меню
@@ -50,9 +62,11 @@ input {
   padding: 20px 0px 5px 0px;
   border: none;
   border-bottom: #333 1px solid;
-  :active {
-    border: none;
-    outline: none !important;
+  :active,
+  :hover,
+  :focus {
+    outline: 0;
+    outline-offset: 0;
   }
 }
 
@@ -61,10 +75,6 @@ input {
   border-radius: 0.5rem;
   background-color: #333;
   color: #fff;
-}
-
-.content {
-  padding: 1rem;
 }
 
 table {
