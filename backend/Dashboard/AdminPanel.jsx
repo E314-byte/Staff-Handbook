@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Axios from "../axios";
+
 import "./css/sidebar.scss";
 
 function AdminPanel({ URL }) {
+
   const src = "http://localhost:8080/api/" + URL + "/";
   const [User, setUser] = useState([]);
   useEffect(() => {
@@ -12,6 +13,23 @@ function AdminPanel({ URL }) {
       // console.log(data.data);
     });
   }, []);
+ 
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password_hash, setPassword_hash] = useState("");
+  const Put = async () => {
+    try {
+      const respons = await axios.put("http://localhost:8080/api/user", {
+        username,
+        email,
+        password_hash,
+      });
+      console.log("что-то получилось");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -33,19 +51,38 @@ function AdminPanel({ URL }) {
           </ul>
         </div>
         <div className="content">
-          {/* <div>
+          <div>
             <h1>Админ панель</h1>
             <br />
             <label>
               Имя пользователя
-              <input placeholder="Имя"></input>
+              <input
+                type="text"
+                placeholder="Имя"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              ></input>
+            </label>
+            <label>
+              Почта
+              <input
+                type="text"
+                placeholder="Почта"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              ></input>
             </label>
             <label>
               Пароль
-              <input placeholder="Пароль"></input>
+              <input
+                type="password"
+                placeholder="пароль"
+                value={password_hash}
+                onChange={(e) => setPassword_hash(e.target.value)}
+              ></input>
             </label>
-          </div> */}
-          <button>показать всех пользователей</button>
+          </div>
+          <button onClick={Put}>изменить пользователя</button>
           <br />
           <table>
             <thead>

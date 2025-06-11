@@ -24,22 +24,22 @@ function Answers({ setTest }) {
 
   return (
     <>
-      <section>
-        {AnswersAndQuestions.map((answer) => (
-          <div className="answers">
-            <div key={answer.answer_id}>
-              <p>Выберите ответ</p>
-              <label className="answer">
+      <div>
+        <div className="answers">
+          <div className="answers-flex">
+            <div>Выберите ответ</div>
+            {AnswersAndQuestions.map((answer) => (
+              <label className="answer" key={answer.answer_id}>
                 <input type="checkbox" name="checkbox" value={1} />
                 {answer.text}
               </label>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
         {/* <button className="button_test" type="submit">
           Подтвердить
         </button> */}
-      </section>
+      </div>
     </>
   );
 }

@@ -13,6 +13,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home_Page />} />
+        
         <Route path="/login" element={<Registration_and_Login />} />
         <Route path="/reference_material" element={<Reference_Material />} />
         <Route path="/test" element={<Staff_Test URL={"test"} />} />

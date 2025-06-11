@@ -17,8 +17,8 @@ class userController {
         res.json(user.rows);
     }
     async updataUser(req, res) {
-        const { users, password, user_id } = req.body;
-        const user = await bd.query('UPDATE users SET users = $1, password = $2 WHERE user_id = $3 RETURNING *', [users, password, user_id]);
+        const { username, email, password_hash } = req.body;
+        const user = await bd.query('UPDATE users SET username = $1, email = $2 WHERE password_hash = $3 RETURNING *', [username, email, password_hash]);
         res.json(user.rows);
     }
     async deleteUser(req, res) {

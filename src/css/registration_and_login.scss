@@ -1,0 +1,44 @@
+.conteiner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  //   align-items: center;
+  background-color: #fff;
+  border: #00bcd4 2px solid;
+  border-radius: 1rem;
+  //   box-shadow: inset 1rem 0rem 1rem, inset 1rem 0rem 1rem;
+
+  h1 {
+    display: flex;
+    margin-top: 0.5rem;
+    // align-items: center;
+    justify-content: center;
+  }
+  input {
+    margin: 1rem 0.5rem;
+  }
+  button {
+    margin: 1rem 0.5rem;
+    width: 92%;
+  }
+  button:nth-child(2n) {
+    font-size: 12px;
+    background-color: #fff;
+    border: none;
+    border-bottom: #00bcd4 1px solid;
+    margin-top: 0.5rem;
+  }
+  p {
+    display: flex;
+    margin-top: 0.5rem;
+    justify-content: center;
+  }
+}

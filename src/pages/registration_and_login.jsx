@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
+import "../css/registration_and_login.scss";
 
 function Registration_and_Login() {
   const [username, setUsername] = useState("");
@@ -7,15 +9,17 @@ function Registration_and_Login() {
   const [password_hash, setPassword_hash] = useState("");
   const [message, setMessage] = useState("");
 
+  const [checkout, setCheckout] = useState("");
+
   const handleRegister = async () => {
     try {
       const response = await axios.post(
         "http://localhost:8080/auth/registration",
         { username, email, password_hash }
       );
-      setMessage(response.data.data);
+      setMessage("Регистрация удалась");
     } catch (error) {
-      setMessage("Registration failed");
+      setMessage("Регистрация не удалась");
     }
   };
 
@@ -26,37 +30,43 @@ function Registration_and_Login() {
         email,
         password_hash,
       });
-      setMessage(response.data.data);
+      setMessage("Вход открыт");
     } catch (error) {
-      setMessage("Login failed");
+      setMessage("Ошибка входа");
     }
   };
 
   return (
     <>
-      <div>
-        <h1>Registration and Login</h1>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password_hash}
-          onChange={(e) => setPassword_hash(e.target.value)}
-        />
-        <button onClick={handleRegister}>Register</button>
-        <button onClick={handleLogin}>Login</button>
-        <p>{message}</p>
+      <div className="conteiner">
+        <div className="card">
+          <h1>Вход</h1>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="email"
+            placeholder="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password_hash}
+            onChange={(e) => setPassword_hash(e.target.value)}
+          />
+          <Link to="/">
+            <button onClick={handleLogin}>Вход</button>
+          </Link>
+          <Link to="/">
+            <button onClick={handleRegister}>Регистрация</button>
+          </Link>
+          <p>{message}</p>
+        </div>
       </div>
     </>
   );

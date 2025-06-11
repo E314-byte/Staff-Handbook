@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Links } from "react-router-dom";
-import logo from "../../public/react.svg";
+import logo from "../assets/soldering-iron.png";
 import "../css/footer.scss";
 
 function Footer() {

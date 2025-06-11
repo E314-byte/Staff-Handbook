@@ -17,12 +17,17 @@
   border-radius: 2rem;
 }
 
+.answers-flex {
+  display: flex;
+  flex-direction: column;
+}
+
 label {
   background-color: #fff;
   border-radius: 2rem;
   margin: 2rem 2rem;
   &:nth-child(1n) {
-    margin-top: 1rem;
+    margin: 0.5rem;
     padding: 1rem;
   }
 }
