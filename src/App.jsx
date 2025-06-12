@@ -13,14 +13,11 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home_Page />} />
-        
+
         <Route path="/login" element={<Registration_and_Login />} />
         <Route path="/reference_material" element={<Reference_Material />} />
         <Route path="/test" element={<Staff_Test URL={"test"} />} />
-        <Route
-          path="/questions"
-          element={<Questions URL={"question"} setTest={2} />}
-        />
+        <Route path="/questions/:id" element={<Questions URL={"question"} />} />
         <Route path="/interactive_tasks" element={<Interactive_tasks />} />
         {/* админ панель */}
         <Route path="/admin" element={<AdminPanel URL={"user"} />} />

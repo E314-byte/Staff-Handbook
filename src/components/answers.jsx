@@ -3,7 +3,7 @@ import axios from "axios";
 import App from "../App";
 import "./../css/staff_test.scss";
 
-function Answers({ setTest }) {
+function Answers({ setTest, OnSelect }) {
   const [AnswersAndQuestions, setAnswersAndQuestions] = useState([]);
 
   const src = "http://localhost:8080/api/answer/";
@@ -30,7 +30,13 @@ function Answers({ setTest }) {
             <div>Выберите ответ</div>
             {AnswersAndQuestions.map((answer) => (
               <label className="answer" key={answer.answer_id}>
-                <input type="checkbox" name="checkbox" value={1} />
+                <input
+                  type="radio"
+                  name={answer.question_id}
+                  onChange={() => {
+                    OnSelect(answer.question_id, answer.answer_id);
+                  }}
+                />
                 {answer.text}
               </label>
             ))}

@@ -5,7 +5,7 @@ import "./../css/staff_test.scss";
 import { Link } from "react-router-dom";
 
 function Tests({ URL }) {
-  const src = "http://localhost:8080/api/" + URL + "/";
+  const src = "http://localhost:8080/api/test/";
   const [Tests, setTests] = useState([]);
   useEffect(() => {
     axios.get(src).then((data) => {
@@ -32,9 +32,9 @@ function Tests({ URL }) {
       <section>
         <div className="answers">
           {Tests.map((tests) => (
-            <label className="answer">
-              <Link to="/questions">
-                <div key={tests.test_id}>
+            <label key={tests.test_id} className="answer">
+              <Link to={`/questions/${tests.test_id}`}>
+                <div>
                   {tests.test_id}
                   {tests.title}
                   <p>{tests.description}</p>
