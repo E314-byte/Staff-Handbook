@@ -16,7 +16,7 @@ class testsController {
         res.json(tests.rows);
     }
 
-    async daletTests(req, res) {
+    async deleteTests(req, res) {
         const test_id = req.params.test_id;
         const tests = await bd.query('DELETE FROM tests WHERE test_id = $1', [test_id]);
         res.json(tests.rows);
