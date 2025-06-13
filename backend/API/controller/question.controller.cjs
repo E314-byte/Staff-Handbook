@@ -1,8 +1,8 @@
 const bd = require('../../bd.cjs');
 class questionsController {
     async createQuestions(req, res) {
-        const { text, points, test_id } = req.body;
-        const newQuestion = await bd.query('INSERT INTO questions ( text, points, test_id ) values ($1, $2, $3) RETURNING *', [text, points, test_id]);
+        const { test_id_Create, textCreate, pointsCreate, } = req.body;
+        const newQuestion = await bd.query('INSERT INTO questions ( test_id, text, points ) values ($1, $2, $3) RETURNING *', [test_id_Create, textCreate, pointsCreate,]);
         // Возвращяется очень много лишний инфы 
         res.json(newQuestion.rows);
     }
@@ -23,7 +23,15 @@ class questionsController {
         res.json(question.rows);
     }
 
-    async daletQuestions(req, res) {
+    async updataQuestions(req, res) {
+        const { test_id_Updata, textUpdata, pointsUpdata, question_id_Updata } = req.body;
+        const question = await bd.query('UPDATE questions SET test_id = $1, text = $2, points = $3 WHERE question_id = $4 RETURNING *', [test_id_Updata, textUpdata, pointsUpdata, question_id_Updata]);
+        res.json(question.rows);
+        console.log(req.body);
+
+    }
+
+    async deleteQuestions(req, res) {
         const question_id = req.params.question_id;
         const question = await bd.query('DELETE FROM questions WHERE question_id = $1', [question_id]);
         res.json(question.rows);

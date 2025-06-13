@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import User_admin from "./components/user_admin";
 import Test_admin from "./components/test_admin";
+import Question_admin from "./components/question_admin";
 // import "./css/sidebar.scss";
 
 function AdminPanel({ URL }) {
@@ -30,7 +31,8 @@ function AdminPanel({ URL }) {
         </div>
         <div className="content">
           {/* <User_admin /> */}
-          <Test_admin />
+          {/* <Test_admin /> */}
+          <Question_admin />
         </div>
       </div>
     </>

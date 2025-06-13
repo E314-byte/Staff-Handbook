@@ -88,7 +88,6 @@ function test_admin({ URL }) {
                 <td>{item.title}</td>
                 <td>{item.description}</td>
                 <td>{item.category_id}</td>
-                <td>{item.category_id}</td>
                 <td>{item.created_by}</td>
               </tr>
             ))}
