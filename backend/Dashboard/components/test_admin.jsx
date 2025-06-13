@@ -13,16 +13,15 @@ function test_admin({ URL }) {
   }, []);
 
   // для изменения данных о тесте
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password_hash, setPassword_hash] = useState("");
+  const [titleUpdata, setTitleUpdata] = useState("");
+  const [descriptionUpdata, setDescriptionUpdata] = useState("");
+  const [test_id, setTest_id] = useState("");
 
   const UpdataTest = async () => {
     try {
-      const response = await axios.put("http://localhost:8080/api/test/", {
-        username,
-        email,
-        password_hash,
+      const response = await axios.put("http://localhost:8080/api/test", {
+        titleUpdata,
+        descriptionUpdata,
       });
       console.log("Данные изменены");
     } catch (error) {
@@ -31,7 +30,7 @@ function test_admin({ URL }) {
     }
   };
 
-  // для удаления
+  // для удаления теста
   const [isDeleting, setIsDeleting] = useState(0);
 
   const DeleteTest = async (test_id) => {
@@ -47,17 +46,17 @@ function test_admin({ URL }) {
     }
   };
 
-  // Создание пользователя
-  const [username1, setUsername1] = useState("");
-  const [email1, setEmail1] = useState("");
-  const [password_hash1, setPassword_hash1] = useState("");
+  // Создание теста
+  const [titleCreate, setTitleCreate] = useState("");
+  const [descriptionCreate, setDescriptionCreate] = useState("");
+  // const [password_hash1, setPassword_hash1] = useState("");
 
   const CreateTest = async () => {
     try {
       const response = await axios.post("http://localhost:8080/api/test/", {
-        username1,
-        email1,
-        password_hash1,
+        titleCreate,
+        descriptionCreate,
+        // password_hash1,
       });
       console.log("Тест создан");
     } catch (error) {
@@ -102,32 +101,32 @@ function test_admin({ URL }) {
             <h1>Изменения данных теста</h1>
             {/* <br /> */}
             <label className="label">
-              Имя пользователя
+              Заголовок
               <input
                 type="text"
-                placeholder="Имя"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Заголовок"
+                value={titleUpdata}
+                onChange={(e) => setTitleUpdata(e.target.value)}
               ></input>
             </label>
             <label className="label">
-              Почта
+              Описание
               <input
                 type="text"
-                placeholder="Почта"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Описание"
+                value={descriptionUpdata}
+                onChange={(e) => setDescriptionUpdata(e.target.value)}
               ></input>
             </label>
-            <label className="label">
-              Пароль
+            {/* <label className="label">
+              ID теста
               <input
-                type="password"
-                placeholder="пароль"
-                value={password_hash}
-                onChange={(e) => setPassword_hash(e.target.value)}
+                type="text"
+                placeholder="ID теста"
+                value={test_id}
+                onChange={(e) => setTest_id(e.target.value)}
               ></input>
-            </label>
+            </label> */}
             <button className="btn_submit_admin" onClick={UpdataTest}>
               изменить тест
             </button>
@@ -138,10 +137,10 @@ function test_admin({ URL }) {
           {/* <br /> */}
           <div className="input_parameters">
             <label className="label">
-              ID пользователя
+              ID теста
               <input
                 type="text"
-                placeholder="ID пользователя"
+                placeholder="ID теста"
                 value={isDeleting}
                 onChange={(e) => setIsDeleting(e.target.value)}
               ></input>
@@ -159,24 +158,24 @@ function test_admin({ URL }) {
           {/* <br /> */}
           <div className="input_parameters">
             <label className="label">
-              Имя пользователя
+              Заголовок
               <input
                 type="text"
-                placeholder="Имя"
-                value={username1}
-                onChange={(e) => setUsername1(e.target.value)}
+                placeholder="Заголовок"
+                value={titleCreate}
+                onChange={(e) => setTitleCreate(e.target.value)}
               ></input>
             </label>
             <label className="label">
-              Почта
+              Описание
               <input
                 type="text"
-                placeholder="Почта"
-                value={email1}
-                onChange={(e) => setEmail1(e.target.value)}
+                placeholder="Описание"
+                value={descriptionCreate}
+                onChange={(e) => setDescriptionCreate(e.target.value)}
               ></input>
             </label>
-            <label className="label">
+            {/* <label className="label">
               Пароль
               <input
                 type="password"
@@ -184,7 +183,7 @@ function test_admin({ URL }) {
                 value={password_hash1}
                 onChange={(e) => setPassword_hash1(e.target.value)}
               ></input>
-            </label>
+            </label> */}
             <button className="btn_submit_admin" onClick={CreateTest}>
               создать тест
             </button>
