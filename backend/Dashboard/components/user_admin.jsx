@@ -70,35 +70,36 @@ function user_admin({ URL }) {
     <>
       {/* <div className="container"> */}
 
-      <div className="content">
-        <div className="table_user_admin">
-          <h1>Управление данными пользователей</h1>
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Password_hash</th>
+      <div className="table_user_admin">
+        <h1>Управление данными пользователей</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Password_hash</th>
+            </tr>
+          </thead>
+          <tbody>
+            {User.map((item) => (
+              <tr key={item.user_id}>
+                <td>{item.user_id}</td>
+                <td>{item.username}</td>
+                <td>{item.email}</td>
+                <td>{item.password_hash}</td>
               </tr>
-            </thead>
-            <tbody>
-              {User.map((item) => (
-                <tr key={item.user_id}>
-                  <td>{item.user_id}</td>
-                  <td>{item.username}</td>
-                  <td>{item.email}</td>
-                  <td>{item.password_hash}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="reques_fun_queries_database">
-          <div className="fun">
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="reques_fun_queries_database">
+        <div className="fun">
+          {/* <br /> */}
+          <div className="input_parameters">
             <h1>Изменения данных пользователя</h1>
-            {/* <br /> */}
-            <label>
+
+            <label className="label">
               Имя пользователя
               <input
                 type="text"
@@ -107,7 +108,7 @@ function user_admin({ URL }) {
                 onChange={(e) => setUsername(e.target.value)}
               ></input>
             </label>
-            <label>
+            <label className="label">
               Почта
               <input
                 type="text"
@@ -116,7 +117,7 @@ function user_admin({ URL }) {
                 onChange={(e) => setEmail(e.target.value)}
               ></input>
             </label>
-            <label>
+            <label className="label">
               Пароль
               <input
                 type="password"
@@ -129,10 +130,12 @@ function user_admin({ URL }) {
               изменить пользователя
             </button>
           </div>
-          <div className="fun">
-            <h1>Удаления пользователя</h1>
-            {/* <br /> */}
-            <label>
+        </div>
+        <div className="fun">
+          <h1>Удаления пользователя</h1>
+          {/* <br /> */}
+          <div className="input_parameters">
+            <label className="label">
               ID пользователя
               <input
                 type="text"
@@ -148,10 +151,12 @@ function user_admin({ URL }) {
               удалить пользователя
             </button>
           </div>
-          <div className="fun">
-            <h1>Создания пользователя</h1>
-            {/* <br /> */}
-            <label>
+        </div>
+        <div className="fun">
+          <h1>Создания пользователя</h1>
+          {/* <br /> */}
+          <div className="input_parameters">
+            <label className="label">
               Имя пользователя
               <input
                 type="text"
@@ -160,7 +165,7 @@ function user_admin({ URL }) {
                 onChange={(e) => setUsername1(e.target.value)}
               ></input>
             </label>
-            <label>
+            <label className="label">
               Почта
               <input
                 type="text"
@@ -169,7 +174,7 @@ function user_admin({ URL }) {
                 onChange={(e) => setEmail1(e.target.value)}
               ></input>
             </label>
-            <label>
+            <label className="label">
               Пароль
               <input
                 type="password"
@@ -184,6 +189,7 @@ function user_admin({ URL }) {
           </div>
         </div>
       </div>
+
       {/* </div> */}
     </>
   );

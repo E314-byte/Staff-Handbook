@@ -70,38 +70,38 @@ function test_admin({ URL }) {
     <>
       {/* <div className="container"> */}
 
-      <div className="content">
-        <div className="table_user_admin">
-          <h1>Управление данными теста</h1>
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Category_ID</th>
-                <th>created_by</th>
+      <div className="table_user_admin">
+        <h1>Управление данными теста</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Category_ID</th>
+              <th>created_by</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Test.map((item) => (
+              <tr key={item.test_id}>
+                <td>{item.test_id}</td>
+                <td>{item.title}</td>
+                <td>{item.description}</td>
+                <td>{item.category_id}</td>
+                <td>{item.category_id}</td>
+                <td>{item.created_by}</td>
               </tr>
-            </thead>
-            <tbody>
-              {Test.map((item) => (
-                <tr key={item.test_id}>
-                  <td>{item.test_id}</td>
-                  <td>{item.title}</td>
-                  <td>{item.description}</td>
-                  <td>{item.category_id}</td>
-                  <td>{item.category_id}</td>
-                  <td>{item.created_by}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="reques_fun_queries_database">
-          <div className="fun">
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="reques_fun_queries_database">
+        <div className="fun">
+          <div className="input_parameters">
             <h1>Изменения данных теста</h1>
             {/* <br /> */}
-            <label>
+            <label className="label">
               Имя пользователя
               <input
                 type="text"
@@ -110,7 +110,7 @@ function test_admin({ URL }) {
                 onChange={(e) => setUsername(e.target.value)}
               ></input>
             </label>
-            <label>
+            <label className="label">
               Почта
               <input
                 type="text"
@@ -119,7 +119,7 @@ function test_admin({ URL }) {
                 onChange={(e) => setEmail(e.target.value)}
               ></input>
             </label>
-            <label>
+            <label className="label">
               Пароль
               <input
                 type="password"
@@ -132,10 +132,12 @@ function test_admin({ URL }) {
               изменить тест
             </button>
           </div>
-          <div className="fun">
-            <h1>Удаления тест</h1>
-            {/* <br /> */}
-            <label>
+        </div>
+        <div className="fun">
+          <h1>Удаления тест</h1>
+          {/* <br /> */}
+          <div className="input_parameters">
+            <label className="label">
               ID пользователя
               <input
                 type="text"
@@ -151,10 +153,12 @@ function test_admin({ URL }) {
               удалить тест
             </button>
           </div>
-          <div className="fun">
-            <h1>Создания теста</h1>
-            {/* <br /> */}
-            <label>
+        </div>
+        <div className="fun">
+          <h1>Создания теста</h1>
+          {/* <br /> */}
+          <div className="input_parameters">
+            <label className="label">
               Имя пользователя
               <input
                 type="text"
@@ -163,7 +167,7 @@ function test_admin({ URL }) {
                 onChange={(e) => setUsername1(e.target.value)}
               ></input>
             </label>
-            <label>
+            <label className="label">
               Почта
               <input
                 type="text"
@@ -172,7 +176,7 @@ function test_admin({ URL }) {
                 onChange={(e) => setEmail1(e.target.value)}
               ></input>
             </label>
-            <label>
+            <label className="label">
               Пароль
               <input
                 type="password"
@@ -187,6 +191,7 @@ function test_admin({ URL }) {
           </div>
         </div>
       </div>
+
       {/* </div> */}
     </>
   );

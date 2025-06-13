@@ -10,7 +10,25 @@ function Interactive_tasks() {
       <Header />
       <section>
         <div className="interactive_task">
-          <Iframe
+          <iframe
+            src="https://udoba.org/h5p/embed/216781"
+            width="1223"
+            height="426"
+            frameborder="0"
+            allowfullscreen="allowfullscreen"
+            allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"
+            title="Выберете правильный провод"
+          ></iframe>
+          <script
+            src="https://udoba.org/sites/all/modules/h5p/library/js/h5p-resizer.js"
+            charset="UTF-8"
+          ></script>
+          <script
+            src="https://udoba.org/sites/all/modules/h5p/library/js/h5p-resizer.js"
+            charset="UTF-8"
+          ></script>
+
+          {/* <Iframe
             src="https://udoba.org/h5p/embed/209999"
             width="1403"
             height="512"
@@ -22,7 +40,7 @@ function Interactive_tasks() {
           <script
             src="https://udoba.org/sites/all/modules/h5p/library/js/h5p-resizer.js"
             charset="UTF-8"
-          ></script>
+          ></script> */}
         </div>
         <div className="interactive_task">
           <Iframe

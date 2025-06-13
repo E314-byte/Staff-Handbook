@@ -35,8 +35,7 @@ function Tests({ URL }) {
             <label key={tests.test_id} className="answer">
               <Link to={`/questions/${tests.test_id}`}>
                 <div>
-                  {tests.test_id}
-                  {tests.title}
+                  <h1>{tests.title}</h1>
                   <p>{tests.description}</p>
                 </div>
               </Link>

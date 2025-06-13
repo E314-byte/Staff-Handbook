@@ -5,6 +5,7 @@ const questionRouter = require('./API/routes/question.routers.cjs');
 const testsRouter = require('./API/routes/tests.routers.cjs');
 const answerRouter = require('./API/routes/answer.routers.cjs');
 const registration_and_Login_Router = require('./API/routes/registration_and_login.routers.cjs');
+const sumPointsRouter = require('./API/routes/sumPoints.routers.cjs');
 
 
 const PORT = process.env.PORT || 8080;
@@ -20,6 +21,8 @@ app.use('/api', testsRouter);
 app.use('/api', answerRouter);
 app.use('/auth', registration_and_Login_Router);
 
+// обработчик суммы очков пользователя
+app.use('/point', sumPointsRouter);
 
 app.listen(PORT, () => {
     console.log(`Сервер запушен на порту: ${PORT}`);

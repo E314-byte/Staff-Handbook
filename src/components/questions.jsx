@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import Answers from "../components/answers";
-import Headr from "../components/header";
+import Header from "../components/header";
 import Footer from "../components/footer";
-import App from "../App";
-import "./../css/staff_test.scss";
+import "../css/staff_test.scss";
 
-function Questions({ setTest, URL }) {
+function Questions({ URL }) {
   const Params = useParams();
   console.log(Params);
 
@@ -21,10 +20,15 @@ function Questions({ setTest, URL }) {
 
   // прописать
   const sendData = () => {
-    axios.post("", {
-      test_id: Params.id,
-      answer_select,
-    });
+    try {
+      axios.post("http://localhost:8080/point/sum/", {
+        test_id: Params.id,
+        answer_select,
+      });
+      console.log("Данные успешно отправлены");
+    } catch (error) {
+      console.error("Ошибка при отправке");
+    }
   };
 
   const src = "http://localhost:8080/api/" + URL + "/";
@@ -47,7 +51,7 @@ function Questions({ setTest, URL }) {
   return (
     <>
       <section>
-        <Headr />
+        <Header />
         {QuestionsAndTest.map((question) => (
           <div key={question.question_id} className="question">
             <div>
@@ -59,44 +63,6 @@ function Questions({ setTest, URL }) {
               setTest={question.question_id}
               OnSelect={handleSelectAnswer}
             />
-            {/* <div className="answers">
-              Выберите ответ
-              <label className="answer">
-                <input type="radio" name="radio" value={1} />
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Debitis provident quae maiores facere nam enim sit, suscipit
-                nihil ipsa impedit, ex quos similique vitae vero ratione tempora
-                harum repellendus ea.
-              </label>
-              <label>
-                <input type="radio" name="radio" value={2} />
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Debitis provident quae maiores facere nam enim sit, suscipit
-                nihil ipsa impedit, ex quos similique vitae vero ratione tempora
-                harum repellendus ea.
-              </label>
-              <label>
-                <input type="radio" name="radio" value={1} />
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Debitis provident quae maiores facere nam enim sit, suscipit
-                nihil ipsa impedit, ex quos similique vitae vero ratione tempora
-                harum repellendus ea.
-              </label>
-              <label>
-                <input type="radio" name="radio" value={1} />
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Debitis provident quae maiores facere nam enim sit, suscipit
-                nihil ipsa impedit, ex quos similique vitae vero ratione tempora
-                harum repellendus ea.
-              </label>
-              <label>
-                <input type="radio" name="radio" value={1} />
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Debitis provident quae maiores facere nam enim sit, suscipit
-                nihil ipsa impedit, ex quos similique vitae vero ratione tempora
-                harum repellendus ea.
-              </label>
-            </div> */}
           </div>
         ))}
         <button className="button_test" type="button" onClick={sendData}>

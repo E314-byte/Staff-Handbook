@@ -29,7 +29,7 @@ function AdminPanel({ URL }) {
           </ul>
         </div>
         <div className="content">
-          <User_admin />
+          {/* <User_admin /> */}
           <Test_admin />
         </div>
       </div>
