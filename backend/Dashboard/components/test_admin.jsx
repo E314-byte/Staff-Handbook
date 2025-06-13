@@ -38,10 +38,10 @@ function test_admin({ URL }) {
       const response = await axios.delete(
         `http://localhost:8080/api/test/${test_id}/`
       );
-      console.log("пользователь удален");
+      console.log("тест удален");
       console.log(test_id);
     } catch (error) {
-      console.log("пользователь не удален");
+      console.log("тест не удален");
       console.log(test_id);
     }
   };
