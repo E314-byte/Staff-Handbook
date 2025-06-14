@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "../css/sidebar.scss";
 
 function question_admin({ URL }) {
@@ -70,102 +71,131 @@ function question_admin({ URL }) {
 
   return (
     <>
-      {/* <div className="container"> */}
-
-      <div className="table_user_admin">
-        <h1>Управление данными вопросов</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Test_id</th>
-              <th>Text</th>
-              <th>Points</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Questions.map((item) => (
-              <tr key={item.question_id}>
-                <td>{item.question_id}</td>
-                <td>{item.test_id}</td>
-                <td>{item.text}</td>
-                <td>{item.points}</td>
+      <div className="container">
+        <div className="sidebar">
+          <h1 className="h1_adminPanel">Админ панель</h1>
+          <ul>
+            <li>
+              <Link to="/admin/user_admin">
+                <p>Пользователь</p>
+              </Link>
+            </li>
+            {/* <li>
+              <Link to="/admin/categoties_admin">
+                <p>Категории тестов</p>
+              </Link>
+            </li> */}
+            <li>
+              <Link to="/admin/test_admin">
+                <p>Тесты</p>
+              </Link>
+            </li>
+            <li>
+              <Link to="/admin/question_admin">
+                <p>Вопросы</p>
+              </Link>
+            </li>
+            <li>
+              <Link to="/admin/answer_admin">
+                <p>Ответы</p>
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="table_user_admin">
+          <h1>Управление данными вопросов</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Test_id</th>
+                <th>Text</th>
+                <th>Points</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="reques_fun_queries_database">
-        <div className="fun">
-          <h1>Изменения данных вопроса</h1>
-          <div className="input_parameters">
-            {/* <br /> */}
-            <label className="label">
-              ID Вопроса
-              <input
-                type="text"
-                placeholder="ID Вопроса"
-                value={question_id_Updata}
-                onChange={(e) => setQuestion_id_Updata(e.target.value)}
-              ></input>
-            </label>
-            <label className="label">
-              ID Теста
-              <input
-                type="text"
-                placeholder="ID Теста"
-                value={test_id_Updata}
-                onChange={(e) => setTest_id_Updata(e.target.value)}
-              ></input>
-            </label>
-            <label className="label">
-              Текст вопроса
-              <input
-                type="text"
-                placeholder="Текст вопроса"
-                value={textUpdata}
-                onChange={(e) => setTextUpdata(e.target.value)}
-              ></input>
-            </label>
-            <label className="label">
-              Очки вопроса
-              <input
-                type="text"
-                placeholder="Очки вопроса"
-                value={pointsUpdata}
-                onChange={(e) => setPointsUpdata(e.target.value)}
-              ></input>
-            </label>
-            <button className="btn_submit_admin" onClick={UpdataQuestions}>
-              изменить вопрос
-            </button>
-          </div>
+            </thead>
+            <tbody>
+              {Questions.map((item) => (
+                <tr key={item.question_id}>
+                  <td>{item.question_id}</td>
+                  <td>{item.test_id}</td>
+                  <td>{item.text}</td>
+                  <td>{item.points}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <div className="fun">
-          <h1>Удаления вопроса</h1>
-          <div className="input_parameters">
-            <label className="label">
-              ID Вопроса
-              <input
-                type="text"
-                placeholder="ID Вопроса"
-                value={isDeleting}
-                onChange={(e) => setIsDeleting(e.target.value)}
-              ></input>
-            </label>
-            <button
-              className="btn_submit_admin"
-              onClick={() => DeleteQuestions(isDeleting)}
-            >
-              удалить вопрос
-            </button>
+        <div className="reques_fun_queries_database">
+          <div className="fun">
+            <h1>Изменения данных вопроса</h1>
+            <div className="input_parameters">
+              {/* <br /> */}
+              <label className="label">
+                ID Вопроса
+                <input
+                  type="text"
+                  placeholder="ID Вопроса"
+                  value={question_id_Updata}
+                  onChange={(e) => setQuestion_id_Updata(e.target.value)}
+                ></input>
+              </label>
+              <label className="label">
+                ID Теста
+                <input
+                  type="text"
+                  placeholder="ID Теста"
+                  value={test_id_Updata}
+                  onChange={(e) => setTest_id_Updata(e.target.value)}
+                ></input>
+              </label>
+              <label className="label">
+                Текст вопроса
+                <input
+                  type="text"
+                  placeholder="Текст вопроса"
+                  value={textUpdata}
+                  onChange={(e) => setTextUpdata(e.target.value)}
+                ></input>
+              </label>
+              <label className="label">
+                Очки вопроса
+                <input
+                  type="text"
+                  placeholder="Очки вопроса"
+                  value={pointsUpdata}
+                  onChange={(e) => setPointsUpdata(e.target.value)}
+                ></input>
+              </label>
+              <button className="btn_submit_admin" onClick={UpdataQuestions}>
+                изменить вопрос
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="fun">
-          <h1>Создания вопроса</h1>
+          <div className="fun">
+            <h1>Удаления вопроса</h1>
+            <div className="input_parameters">
+              <label className="label">
+                ID Вопроса
+                <input
+                  type="text"
+                  placeholder="ID Вопроса"
+                  value={isDeleting}
+                  onChange={(e) => setIsDeleting(e.target.value)}
+                ></input>
+              </label>
+              <button
+                className="btn_submit_admin"
+                onClick={() => DeleteQuestions(isDeleting)}
+              >
+                удалить вопрос
+              </button>
+            </div>
+          </div>
+          <div className="fun">
+            <h1>Создания вопроса</h1>
 
-          <div className="input_parameters">
-            {/* <label className="label">
+            <div className="input_parameters">
+              {/* <label className="label">
               ID Вопроса
               <input
                 type="text"
@@ -174,41 +204,40 @@ function question_admin({ URL }) {
                 onChange={(e) => setQuestion_id_Create(e.target.value)}
               ></input>
             </label> */}
-            <label className="label">
-              ID Теста
-              <input
-                type="text"
-                placeholder="ID Теста"
-                value={test_id_Create}
-                onChange={(e) => setTest_id_Create(e.target.value)}
-              ></input>
-            </label>
-            <label className="label">
-              Текст
-              <input
-                type="text"
-                placeholder="Текст"
-                value={textCreate}
-                onChange={(e) => setTextCreate(e.target.value)}
-              ></input>
-            </label>
-            <label className="label">
-              Очки вопроса
-              <input
-                type="text"
-                placeholder="Очки вопроса"
-                value={pointsCreate}
-                onChange={(e) => setPointsCreate(e.target.value)}
-              ></input>
-            </label>
-            <button className="btn_submit_admin" onClick={CreateQuestion}>
-              создать вопрос
-            </button>
+              <label className="label">
+                ID Теста
+                <input
+                  type="text"
+                  placeholder="ID Теста"
+                  value={test_id_Create}
+                  onChange={(e) => setTest_id_Create(e.target.value)}
+                ></input>
+              </label>
+              <label className="label">
+                Текст
+                <input
+                  type="text"
+                  placeholder="Текст"
+                  value={textCreate}
+                  onChange={(e) => setTextCreate(e.target.value)}
+                ></input>
+              </label>
+              <label className="label">
+                Очки вопроса
+                <input
+                  type="text"
+                  placeholder="Очки вопроса"
+                  value={pointsCreate}
+                  onChange={(e) => setPointsCreate(e.target.value)}
+                ></input>
+              </label>
+              <button className="btn_submit_admin" onClick={CreateQuestion}>
+                создать вопрос
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* </div> */}
     </>
   );
 }

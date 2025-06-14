@@ -7,6 +7,10 @@ import Staff_Test from "./pages/staff_test";
 import Questions from "./components/questions";
 import Interactive_tasks from "./pages/Interactive_tasks";
 import AdminPanel from "../backend/Dashboard/AdminPanel";
+import User_admin from "../backend/Dashboard/components/user_admin";
+import Test_admin from "../backend/Dashboard/components/test_admin";
+import Question_admin from "../backend/Dashboard/components/question_admin";
+import Answer_admin from "../backend/Dashboard/components/answer_admin";
 
 function App() {
   return (
@@ -20,8 +24,16 @@ function App() {
         <Route path="/questions/:id" element={<Questions URL={"question"} />} />
         <Route path="/interactive_tasks" element={<Interactive_tasks />} />
         {/* админ панель */}
-        <Route path="/admin" element={<AdminPanel URL={"user"} />} />
+        <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/admin/user_admin" element={<User_admin />} />
+        <Route path="/admin/test_admin" element={<Test_admin />} />
+        <Route path="/admin/question_admin" element={<Question_admin />} />
+        {/* чет пока не работает */}
+        <Route path="/admin/answer_admin" element={<Answer_admin />} />
       </Routes>
+      {/* <Routes>
+        
+      </Routes> */}
     </>
   );
 }

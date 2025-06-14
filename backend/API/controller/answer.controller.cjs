@@ -1,5 +1,5 @@
 const bd = require('../../bd.cjs');
-class answersController {
+class answerController {
     async createAnswer(req, res) {
         const { question_id_Create, textCreate, correctCreate } = req.body;
         const newAnswer = await bd.query('INSERT INTO answers ( question_id, text, is_correct ) values ($1, $2, $3) RETURNING *', [question_id_Create, textCreate, correctCreate]);
@@ -24,7 +24,7 @@ class answersController {
     }
 
     // проверить и изменить 
-    async updataUser(req, res) {
+    async UpdataAnswer(req, res) {
         const { question_id_Updata, textUpdata, correctUpdata, answer_id_Updata } = req.body;
         const user = await bd.query('UPDATE answers SET question_id = $1, text = $2, is_correct = $3 WHERE answer_id = $4 RETURNING *', [question_id_Updata, textUpdata, correctUpdata, answer_id_Updata]);
         res.json(user.rows);
@@ -37,4 +37,4 @@ class answersController {
     }
 }
 
-module.exports = new answersController();
+module.exports = new answerController();

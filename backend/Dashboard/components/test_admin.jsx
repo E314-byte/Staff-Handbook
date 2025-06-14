@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "../css/sidebar.scss";
 
 function test_admin({ URL }) {
@@ -67,57 +68,86 @@ function test_admin({ URL }) {
 
   return (
     <>
-      {/* <div className="container"> */}
-
-      <div className="table_user_admin">
-        <h1>Управление данными теста</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Category_ID</th>
-              <th>created_by</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Test.map((item) => (
-              <tr key={item.test_id}>
-                <td>{item.test_id}</td>
-                <td>{item.title}</td>
-                <td>{item.description}</td>
-                <td>{item.category_id}</td>
-                <td>{item.created_by}</td>
+      <div className="container">
+        <div className="sidebar">
+          <h1 className="h1_adminPanel">Админ панель</h1>
+          <ul>
+            <li>
+              <Link to="/admin/user_admin">
+                <p>Пользователь</p>
+              </Link>
+            </li>
+            {/* <li>
+              <Link to="/admin/categoties_admin">
+                <p>Категории тестов</p>
+              </Link>
+            </li> */}
+            <li>
+              <Link to="/admin/test_admin">
+                <p>Тесты</p>
+              </Link>
+            </li>
+            <li>
+              <Link to="/admin/question_admin">
+                <p>Вопросы</p>
+              </Link>
+            </li>
+            <li>
+              <Link to="/admin/answer_admin">
+                <p>Ответы</p>
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="table_user_admin">
+          <h1>Управление данными теста</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Category_ID</th>
+                <th>created_by</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="reques_fun_queries_database">
-        <div className="fun">
-          <div className="input_parameters">
-            <h1>Изменения данных теста</h1>
-            {/* <br /> */}
-            <label className="label">
-              Заголовок
-              <input
-                type="text"
-                placeholder="Заголовок"
-                value={titleUpdata}
-                onChange={(e) => setTitleUpdata(e.target.value)}
-              ></input>
-            </label>
-            <label className="label">
-              Описание
-              <input
-                type="text"
-                placeholder="Описание"
-                value={descriptionUpdata}
-                onChange={(e) => setDescriptionUpdata(e.target.value)}
-              ></input>
-            </label>
-            {/* <label className="label">
+            </thead>
+            <tbody>
+              {Test.map((item) => (
+                <tr key={item.test_id}>
+                  <td>{item.test_id}</td>
+                  <td>{item.title}</td>
+                  <td>{item.description}</td>
+                  <td>{item.category_id}</td>
+                  <td>{item.created_by}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="reques_fun_queries_database">
+          <div className="fun">
+            <div className="input_parameters">
+              <h1>Изменения данных теста</h1>
+              {/* <br /> */}
+              <label className="label">
+                Заголовок
+                <input
+                  type="text"
+                  placeholder="Заголовок"
+                  value={titleUpdata}
+                  onChange={(e) => setTitleUpdata(e.target.value)}
+                ></input>
+              </label>
+              <label className="label">
+                Описание
+                <input
+                  type="text"
+                  placeholder="Описание"
+                  value={descriptionUpdata}
+                  onChange={(e) => setDescriptionUpdata(e.target.value)}
+                ></input>
+              </label>
+              {/* <label className="label">
               ID теста
               <input
                 type="text"
@@ -126,55 +156,55 @@ function test_admin({ URL }) {
                 onChange={(e) => setTest_id(e.target.value)}
               ></input>
             </label> */}
-            <button className="btn_submit_admin" onClick={UpdataTest}>
-              изменить тест
-            </button>
+              <button className="btn_submit_admin" onClick={UpdataTest}>
+                изменить тест
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="fun">
-          <h1>Удаления тест</h1>
-          {/* <br /> */}
-          <div className="input_parameters">
-            <label className="label">
-              ID теста
-              <input
-                type="text"
-                placeholder="ID теста"
-                value={isDeleting}
-                onChange={(e) => setIsDeleting(e.target.value)}
-              ></input>
-            </label>
-            <button
-              className="btn_submit_admin"
-              onClick={() => DeleteTest(isDeleting)}
-            >
-              удалить тест
-            </button>
+          <div className="fun">
+            <h1>Удаления тест</h1>
+            {/* <br /> */}
+            <div className="input_parameters">
+              <label className="label">
+                ID теста
+                <input
+                  type="text"
+                  placeholder="ID теста"
+                  value={isDeleting}
+                  onChange={(e) => setIsDeleting(e.target.value)}
+                ></input>
+              </label>
+              <button
+                className="btn_submit_admin"
+                onClick={() => DeleteTest(isDeleting)}
+              >
+                удалить тест
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="fun">
-          <h1>Создания теста</h1>
-          {/* <br /> */}
-          <div className="input_parameters">
-            <label className="label">
-              Заголовок
-              <input
-                type="text"
-                placeholder="Заголовок"
-                value={titleCreate}
-                onChange={(e) => setTitleCreate(e.target.value)}
-              ></input>
-            </label>
-            <label className="label">
-              Описание
-              <input
-                type="text"
-                placeholder="Описание"
-                value={descriptionCreate}
-                onChange={(e) => setDescriptionCreate(e.target.value)}
-              ></input>
-            </label>
-            {/* <label className="label">
+          <div className="fun">
+            <h1>Создания теста</h1>
+            {/* <br /> */}
+            <div className="input_parameters">
+              <label className="label">
+                Заголовок
+                <input
+                  type="text"
+                  placeholder="Заголовок"
+                  value={titleCreate}
+                  onChange={(e) => setTitleCreate(e.target.value)}
+                ></input>
+              </label>
+              <label className="label">
+                Описание
+                <input
+                  type="text"
+                  placeholder="Описание"
+                  value={descriptionCreate}
+                  onChange={(e) => setDescriptionCreate(e.target.value)}
+                ></input>
+              </label>
+              {/* <label className="label">
               Пароль
               <input
                 type="password"
@@ -183,14 +213,13 @@ function test_admin({ URL }) {
                 onChange={(e) => setPassword_hash1(e.target.value)}
               ></input>
             </label> */}
-            <button className="btn_submit_admin" onClick={CreateTest}>
-              создать тест
-            </button>
+              <button className="btn_submit_admin" onClick={CreateTest}>
+                создать тест
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* </div> */}
     </>
   );
 }
