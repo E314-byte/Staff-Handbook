@@ -2,8 +2,8 @@ const bd = require('../../bd.cjs');
 class questionsController {
     async createQuestions(req, res) {
         const { test_id_Create, textCreate, pointsCreate, } = req.body;
-        const newQuestion = await bd.query('INSERT INTO questions ( test_id, text, points ) values ($1, $2, $3) RETURNING *', [test_id_Create, textCreate, pointsCreate,]);
-        // Возвращяется очень много лишний инфы 
+        const newQuestion = await bd.query('INSERT INTO questions ( test_id, text, points ) values ($1, $2, $3) RETURNING *', [test_id_Create, textCreate, pointsCreate]);
+        // Возвращяется очень много лишний инфы   
         res.json(newQuestion.rows);
     }
     async getQuestions(req, res) {

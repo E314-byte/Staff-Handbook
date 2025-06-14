@@ -4,8 +4,7 @@ class userController {
         const { username1, email1, password_hash1 } = req.body;
         const newUsers = await bd.query('INSERT INTO users ( username, email, password_hash ) values ($1, $2, $3) RETURNING *', [username1, email1, password_hash1]);
         console.log(username1, email1, password_hash1);
-        // Возвращяется очень много лишний инфы 
-        res.json(newUsers.rows[0]);
+        res.json(newUsers.rows);
     }
     async getUser(req, res) {
         const users = await bd.query('SELECT * FROM users');

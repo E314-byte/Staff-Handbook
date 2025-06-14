@@ -8,6 +8,6 @@ router.get('/answer', cors(), answerController.getAnswer);
 router.get('/answer/:answer_id', cors(), answerController.getOneAnswer);
 router.get('/answer/', cors(), answerController.getAnswersQuestions);
 // router.put('/user',cors(), questionsController.updataUser);
-router.delete('/answer/:answer_id', cors(), answerController.daletAnswer);
+router.delete('/answer/:answer_id', cors(), answerController.deleteAnswer);
 
 module.exports = router;
