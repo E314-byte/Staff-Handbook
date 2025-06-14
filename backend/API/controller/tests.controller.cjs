@@ -19,15 +19,9 @@ class testsController {
     }
 
     async updataTest(req, res) {
-        const { titleUpdata,
-            descriptionUpdata } = req.body;
-        const test = await bd.query('UPDATE tests SET title = $1 WHERE description = $2 RETURNING *', [titleUpdata,
-            descriptionUpdata]);
-        // const test = await bd.query('UPDATE tests SET title = $1, description = $2 WHERE test_id = $3 RETURNING *', [titleUpdata,
-        //     descriptionUpdata, test_id]);
-
+        const { titleUpdata, descriptionUpdata, test_id } = req.body;
+        const test = await bd.query('UPDATE tests SET title = $1, description = $2 WHERE test_id = $3 RETURNING *', [titleUpdata, descriptionUpdata, test_id]);
         res.json(test.rows);
-        console.log(test);
     }
 
     async deleteTests(req, res) {

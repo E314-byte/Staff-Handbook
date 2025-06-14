@@ -18,33 +18,38 @@ function answer_admin({ URL }) {
   const [question_id_Updata, setQuestion_id_Updata] = useState("");
   const [textUpdata, setTextUpdata] = useState("");
   const [correctUpdata, setCorrectUpdata] = useState("");
+  const [massageAnswerUpdata, setMassageAnswerUpdata] = useState("");
 
   const UpdataAnswer = async () => {
     try {
       const response = await axios.put("http://localhost:8080/api/answer", {
-        answer_id_Updata,
         question_id_Updata,
         textUpdata,
         correctUpdata,
+        answer_id_Updata,
       });
+      setMassageAnswerUpdata("Данные изменены");
       console.log("Данные изменены");
     } catch (error) {
-      console.log(error);
-      console.log("не получилось изменить данные");
+      setMassageAnswerUpdata("не получилось изменить данные");
+      console.log("не получилось изменить данные", error);
     }
   };
 
   // для удаления теста
   const [isDeleting, setIsDeleting] = useState(0);
+  const [massageIsDeleting, setMassageIsDeleting] = useState("");
 
   const DeleteAnswer = async (answer_id) => {
     try {
       const response = await axios.delete(
         `http://localhost:8080/api/answer/${answer_id}/`
       );
+      setMassageIsDeleting("Ответ удален");
       console.log("Ответ удален");
     } catch (error) {
-      console.log("Ответ не удален");
+      setIsDeleting("Ответ не удален");
+      console.log("Ответ не удален", error);
     }
   };
 
@@ -53,6 +58,7 @@ function answer_admin({ URL }) {
   const [question_id_Create, setQuestion_id_Create] = useState("");
   const [textCreate, setTextCreate] = useState("");
   const [correctCreate, setCorrectCreate] = useState("");
+  const [massageCreateAnswer, setMassageCreateAnswer] = useState("");
 
   const CreateAnswer = async () => {
     try {
@@ -61,11 +67,11 @@ function answer_admin({ URL }) {
         textCreate,
         correctCreate,
       });
+      setMassageCreateAnswer("Ответ создан");
       console.log("Ответ создан");
     } catch (error) {
-      console.error(error);
-      console.log("не получилось создать Ответ");
-      // console.log(correctCreate);
+      setMassageCreateAnswer("не получилось создать ответ");
+      console.log("не получилось создать Ответ", error);
     }
   };
 
@@ -77,33 +83,33 @@ function answer_admin({ URL }) {
           <ul>
             <li>
               <Link to="/admin/user_admin">
-                <p>Пользователь</p>
+                <div>Пользователь</div>
               </Link>
             </li>
-            {/* <li>
-              <Link to="/admin/categoties_admin">
-                <p>Категории тестов</p>
+            <li>
+              <Link to="/admin/categories_admin">
+                <div>Категории тестов</div>
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link to="/admin/test_admin">
-                <p>Тесты</p>
+                <div>Тесты</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/question_admin">
-                <p>Вопросы</p>
+                <div>Вопросы</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/answer_admin">
-                <p>Ответы</p>
+                <div>Ответы</div>
               </Link>
             </li>
           </ul>
         </div>
         <div className="table_user_admin">
-          <h1>Управление данными вопросов</h1>
+          <h1>Управление данными ответов</h1>
           <table>
             <thead>
               <tr>
@@ -133,6 +139,7 @@ function answer_admin({ URL }) {
               {/* <br /> */}
               <label className="label">
                 ID Ответа
+                <span style={{ color: "red" }}>(нельзя изменять)</span>
                 <input
                   type="text"
                   placeholder="ID Ответа"
@@ -172,6 +179,7 @@ function answer_admin({ URL }) {
               <button className="btn_submit_admin" onClick={UpdataAnswer}>
                 изменить ответ
               </button>
+              <p>{massageAnswerUpdata}</p>
             </div>
           </div>
           <div className="fun">
@@ -192,6 +200,7 @@ function answer_admin({ URL }) {
               >
                 удалить вопрос
               </button>
+              <p>{massageIsDeleting}</p>
             </div>
           </div>
           <div className="fun">
@@ -239,6 +248,7 @@ function answer_admin({ URL }) {
               <button className="btn_submit_admin" onClick={CreateAnswer}>
                 создать ответ
               </button>
+              <p>{massageCreateAnswer}</p>
             </div>
           </div>
         </div>

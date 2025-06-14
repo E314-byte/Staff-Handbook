@@ -56,7 +56,7 @@ function Questions({ URL }) {
           <div key={question.question_id} className="question">
             <div>
               <h1>{question.text}</h1>
-              <p>{question.points}</p>
+              <div>{question.points}</div>
             </div>
             <hr />
             <Answers

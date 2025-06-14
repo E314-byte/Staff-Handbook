@@ -14,56 +14,63 @@ function user_admin({ URL }) {
   }, []);
 
   // для изменения данных о пользовате
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password_hash, setPassword_hash] = useState("");
+  const [user_id_Updata, setUser_id_Updata] = useState("");
+  const [username_Updata, setUsername_Updata] = useState("");
+  const [email_Updata, setEmail_Updata] = useState("");
+  const [password_hash_Updata, setPassword_hash_Updata] = useState("");
+  const [massageUserUpdata, setMassageUserUpdata] = useState("");
 
   const UpdataUser = async () => {
     try {
       const response = await axios.put("http://localhost:8080/api/user", {
-        username,
-        email,
-        password_hash,
+        username_Updata,
+        email_Updata,
+        password_hash_Updata,
+        user_id_Updata,
       });
-      console.log("Данные изменены");
+      setMassageUserUpdata("Данные пользователя изменены");
+      console.log("Данные пользователя изменены");
     } catch (error) {
-      console.log(error);
-      console.log("не получилось изменить данные");
+      setMassageUserUpdata("Не получилось изменить данные пользователя");
+      console.log("Не получилось изменить данные пользователя", error);
     }
   };
 
   // для удаления
   const [isDeleting, setIsDeleting] = useState(0);
+  const [massageIsDeleting, setMassageIsDeleting] = useState("");
 
   const DeleteUser = async (user_id) => {
     try {
       const response = await axios.delete(
         `http://localhost:8080/api/user/${user_id}/`
       );
-      console.log("пользователь удален");
-      console.log(user_id);
+      setMassageIsDeleting("Пользователь удален");
+      console.log("Пользователь удален");
     } catch (error) {
-      console.log("пользователь не удален");
-      console.log(user_id);
+      setMassageIsDeleting("Пользователь не удален");
+      console.log("Пользователь не удален", error);
     }
   };
 
   // Создание пользователя
-  const [username1, setUsername1] = useState("");
-  const [email1, setEmail1] = useState("");
-  const [password_hash1, setPassword_hash1] = useState("");
+  const [username_CreateUser, setUsername_CreateUser] = useState("");
+  const [email_CreateUser, setEmail_CreateUser] = useState("");
+  const [password_hash_CreateUser, setPassword_hash_CreateUser] = useState("");
+  const [massageCreateUser, setMassageCreateUser] = useState("");
 
   const CreateUser = async () => {
     try {
       const response = await axios.post("http://localhost:8080/api/user", {
-        username1,
-        email1,
-        password_hash1,
+        username_CreateUser,
+        email_CreateUser,
+        password_hash_CreateUser,
       });
-      console.log("пользователь создан");
+      setMassageCreateUser("Пользователь создан");
+      console.log("Пользователь создан");
     } catch (error) {
-      console.error(error);
-      console.log("не получилось создать пользователя");
+      setMassageCreateUser("Не получилось создать пользователя");
+      console.log("Не получилось создать пользователя", error);
     }
   };
 
@@ -75,27 +82,27 @@ function user_admin({ URL }) {
           <ul>
             <li>
               <Link to="/admin/user_admin">
-                <p>Пользователь</p>
+                <div>Пользователь</div>
               </Link>
             </li>
-            {/* <li>
-              <Link to="/admin/categoties_admin">
-                <p>Категории тестов</p>
+            <li>
+              <Link to="/admin/categories_admin">
+                <div>Категории тестов</div>
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link to="/admin/test_admin">
-                <p>Тесты</p>
+                <div>Тесты</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/question_admin">
-                <p>Вопросы</p>
+                <div>Вопросы</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/answer_admin">
-                <p>Ответы</p>
+                <div>Ответы</div>
               </Link>
             </li>
           </ul>
@@ -130,12 +137,22 @@ function user_admin({ URL }) {
               <h1>Изменения данных пользователя</h1>
 
               <label className="label">
+                ID Пользователя
+                <span style={{ color: "red" }}>(нельзя изменять)</span>
+                <input
+                  type="text"
+                  placeholder="ID Пользователя"
+                  value={user_id_Updata}
+                  onChange={(e) => setUser_id_Updata(e.target.value)}
+                ></input>
+              </label>
+              <label className="label">
                 Имя пользователя
                 <input
                   type="text"
                   placeholder="Имя"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  value={username_Updata}
+                  onChange={(e) => setUsername_Updata(e.target.value)}
                 ></input>
               </label>
               <label className="label">
@@ -143,8 +160,8 @@ function user_admin({ URL }) {
                 <input
                   type="text"
                   placeholder="Почта"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={email_Updata}
+                  onChange={(e) => setEmail_Updata(e.target.value)}
                 ></input>
               </label>
               <label className="label">
@@ -152,13 +169,14 @@ function user_admin({ URL }) {
                 <input
                   type="password"
                   placeholder="пароль"
-                  value={password_hash}
-                  onChange={(e) => setPassword_hash(e.target.value)}
+                  value={password_hash_Updata}
+                  onChange={(e) => setPassword_hash_Updata(e.target.value)}
                 ></input>
               </label>
               <button className="btn_submit_admin" onClick={UpdataUser}>
                 изменить пользователя
               </button>
+              <p>{massageUserUpdata}</p>
             </div>
           </div>
           <div className="fun">
@@ -180,6 +198,7 @@ function user_admin({ URL }) {
               >
                 удалить пользователя
               </button>
+              <p>{massageIsDeleting}</p>
             </div>
           </div>
           <div className="fun">
@@ -191,8 +210,8 @@ function user_admin({ URL }) {
                 <input
                   type="text"
                   placeholder="Имя"
-                  value={username1}
-                  onChange={(e) => setUsername1(e.target.value)}
+                  value={username_CreateUser}
+                  onChange={(e) => setUsername_CreateUser(e.target.value)}
                 ></input>
               </label>
               <label className="label">
@@ -216,6 +235,7 @@ function user_admin({ URL }) {
               <button className="btn_submit_admin" onClick={CreateUser}>
                 создать пользователя
               </button>
+              <p>{massageCreateUser}</p>
             </div>
           </div>
         </div>

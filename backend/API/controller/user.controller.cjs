@@ -1,8 +1,8 @@
 const bd = require('../../bd.cjs');
 class userController {
     async createUser(req, res) {
-        const { username1, email1, password_hash1 } = req.body;
-        const newUsers = await bd.query('INSERT INTO users ( username, email, password_hash ) values ($1, $2, $3) RETURNING *', [username1, email1, password_hash1]);
+        const { username_CreateUser, email_CreateUser, password_hash_CreateUser, } = req.body;
+        const newUsers = await bd.query('INSERT INTO users ( username, email, password_hash ) values ($1, $2, $3) RETURNING *', [username_CreateUser, email_CreateUser, password_hash_CreateUser,]);
         console.log(username1, email1, password_hash1);
         res.json(newUsers.rows);
     }
@@ -16,8 +16,8 @@ class userController {
         res.json(user.rows);
     }
     async updataUser(req, res) {
-        const { username, email, password_hash } = req.body;
-        const user = await bd.query('UPDATE users SET username = $1, email = $2 WHERE password_hash = $3 RETURNING *', [username, email, password_hash]);
+        const { username_Updata, email_Updata, password_hash_Updata, user_id_Updata } = req.body;
+        const user = await bd.query('UPDATE users SET username = $1, email = $2, password_hash = $3 WHERE user_id = $4 RETURNING *', [username_Updata, email_Updata, password_hash_Updata, user_id_Updata]);
         res.json(user.rows);
     }
     async deleteUser(req, res) {

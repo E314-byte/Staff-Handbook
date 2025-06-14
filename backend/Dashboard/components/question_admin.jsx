@@ -18,33 +18,38 @@ function question_admin({ URL }) {
   const [test_id_Updata, setTest_id_Updata] = useState("");
   const [textUpdata, setTextUpdata] = useState("");
   const [pointsUpdata, setPointsUpdata] = useState("");
+  const [massageQuestionsUpdata, setMassageQuestionsUpdata] = useState("");
 
   const UpdataQuestions = async () => {
     try {
       const response = await axios.put("http://localhost:8080/api/question", {
-        question_id_Updata,
         test_id_Updata,
         textUpdata,
         pointsUpdata,
+        question_id_Updata,
       });
-      console.log("Данные изменены");
+      setMassageQuestionsUpdata("Данные вопроса изменены");
+      console.log("Данные вопроса изменены");
     } catch (error) {
-      console.log(error);
-      console.log("не получилось изменить данные");
+      setMassageQuestionsUpdata("Не получилось изменить данные вопроса");
+      console.log("Не получилось изменить данные вопроса", error);
     }
   };
 
   // для удаления теста
   const [isDeleting, setIsDeleting] = useState(0);
+  const [massageIsDeleting, setMassageIsDeleting] = useState("");
 
   const DeleteQuestions = async (question_id) => {
     try {
       const response = await axios.delete(
         `http://localhost:8080/api/question/${question_id}/`
       );
+      setMassageIsDeleting("Вопрос удален");
       console.log("Вопрос удален");
     } catch (error) {
-      console.log("Вопрос не удален");
+      setMassageIsDeleting("Вопрос не удален");
+      console.log("Вопрос не удален", error);
     }
   };
 
@@ -53,6 +58,7 @@ function question_admin({ URL }) {
   const [test_id_Create, setTest_id_Create] = useState("");
   const [textCreate, setTextCreate] = useState("");
   const [pointsCreate, setPointsCreate] = useState("");
+  const [massageCreateQuestion, setMassageCreateQuestion] = useState("");
 
   const CreateQuestion = async () => {
     try {
@@ -62,10 +68,11 @@ function question_admin({ URL }) {
         textCreate,
         pointsCreate,
       });
+      setMassageCreateQuestion("Вопрос создан");
       console.log("Вопрос создан");
     } catch (error) {
-      console.error(error);
-      console.log("не получилось создать Вопрос");
+      setMassageCreateQuestion("Не получилось создать вопрос");
+      console.log("Не получилось создать вопрос", error);
     }
   };
 
@@ -77,27 +84,27 @@ function question_admin({ URL }) {
           <ul>
             <li>
               <Link to="/admin/user_admin">
-                <p>Пользователь</p>
+                <div>Пользователь</div>
               </Link>
             </li>
-            {/* <li>
-              <Link to="/admin/categoties_admin">
-                <p>Категории тестов</p>
+            <li>
+              <Link to="/admin/categories_admin">
+                <div>Категории тестов</div>
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link to="/admin/test_admin">
-                <p>Тесты</p>
+                <div>Тесты</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/question_admin">
-                <p>Вопросы</p>
+                <div>Вопросы</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/answer_admin">
-                <p>Ответы</p>
+                <div>Ответы</div>
               </Link>
             </li>
           </ul>
@@ -132,6 +139,7 @@ function question_admin({ URL }) {
               {/* <br /> */}
               <label className="label">
                 ID Вопроса
+                <span style={{ color: "red" }}>(нельзя изменять)</span>
                 <input
                   type="text"
                   placeholder="ID Вопроса"
@@ -169,6 +177,7 @@ function question_admin({ URL }) {
               <button className="btn_submit_admin" onClick={UpdataQuestions}>
                 изменить вопрос
               </button>
+              <p>{massageQuestionsUpdata}</p>
             </div>
           </div>
           <div className="fun">
@@ -189,6 +198,7 @@ function question_admin({ URL }) {
               >
                 удалить вопрос
               </button>
+              <p>{massageIsDeleting}</p>
             </div>
           </div>
           <div className="fun">
@@ -234,6 +244,7 @@ function question_admin({ URL }) {
               <button className="btn_submit_admin" onClick={CreateQuestion}>
                 создать вопрос
               </button>
+              <p>{massageCreateQuestion}</p>
             </div>
           </div>
         </div>

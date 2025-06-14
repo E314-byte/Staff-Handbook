@@ -17,33 +17,37 @@ function test_admin({ URL }) {
   const [titleUpdata, setTitleUpdata] = useState("");
   const [descriptionUpdata, setDescriptionUpdata] = useState("");
   const [test_id, setTest_id] = useState("");
+  const [massageTestUpdata, setMassageTestUpdata] = useState("");
 
   const UpdataTest = async () => {
     try {
       const response = await axios.put("http://localhost:8080/api/test", {
         titleUpdata,
         descriptionUpdata,
+        test_id,
       });
-      console.log("Данные изменены");
+      setMassageTestUpdata("Данные теста изменены");
+      console.log("Данные теста изменены");
     } catch (error) {
-      console.log(error);
-      console.log("не получилось изменить данные");
+      setMassageTestUpdata("не получилось изменить данные теста");
+      console.log("не получилось изменить данные теста", error);
     }
   };
 
   // для удаления теста
   const [isDeleting, setIsDeleting] = useState(0);
+  const [massageIsDeleting, setMassageIsDeleting] = useState("");
 
   const DeleteTest = async (test_id) => {
     try {
       const response = await axios.delete(
         `http://localhost:8080/api/test/${test_id}/`
       );
+      setIsDeleting("тест удален");
       console.log("тест удален");
-      console.log(test_id);
     } catch (error) {
-      console.log("тест не удален");
-      console.log(test_id);
+      setIsDeleting("тест не удален");
+      console.log("тест не удален", error);
     }
   };
 
@@ -51,6 +55,7 @@ function test_admin({ URL }) {
   const [titleCreate, setTitleCreate] = useState("");
   const [descriptionCreate, setDescriptionCreate] = useState("");
   // const [password_hash1, setPassword_hash1] = useState("");
+  const [massageCreateTest, setMassageCreateTest] = useState("");
 
   const CreateTest = async () => {
     try {
@@ -59,10 +64,11 @@ function test_admin({ URL }) {
         descriptionCreate,
         // password_hash1,
       });
+      setMassageCreateTest("Тест создан");
       console.log("Тест создан");
     } catch (error) {
-      console.error(error);
-      console.log("не получилось создать тест");
+      setMassageCreateTest("Не получилось создать тест");
+      console.log("Не получилось создать тест", error);
     }
   };
 
@@ -74,27 +80,27 @@ function test_admin({ URL }) {
           <ul>
             <li>
               <Link to="/admin/user_admin">
-                <p>Пользователь</p>
+                <div>Пользователь</div>
               </Link>
             </li>
-            {/* <li>
-              <Link to="/admin/categoties_admin">
-                <p>Категории тестов</p>
+            <li>
+              <Link to="/admin/categories_admin">
+                <div>Категории тестов</div>
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link to="/admin/test_admin">
-                <p>Тесты</p>
+                <div>Тесты</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/question_admin">
-                <p>Вопросы</p>
+                <div>Вопросы</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/answer_admin">
-                <p>Ответы</p>
+                <div>Ответы</div>
               </Link>
             </li>
           </ul>
@@ -108,7 +114,7 @@ function test_admin({ URL }) {
                 <th>Title</th>
                 <th>Description</th>
                 <th>Category_ID</th>
-                <th>created_by</th>
+                {/* <th>created_by</th> */}
               </tr>
             </thead>
             <tbody>
@@ -118,7 +124,7 @@ function test_admin({ URL }) {
                   <td>{item.title}</td>
                   <td>{item.description}</td>
                   <td>{item.category_id}</td>
-                  <td>{item.created_by}</td>
+                  {/* <td>{item.created_by}</td> */}
                 </tr>
               ))}
             </tbody>
@@ -129,6 +135,16 @@ function test_admin({ URL }) {
             <div className="input_parameters">
               <h1>Изменения данных теста</h1>
               {/* <br /> */}
+              <label className="label">
+                ID теста
+                <span style={{ color: "red" }}>(нельзя изменять)</span>
+                <input
+                  type="text"
+                  placeholder="ID теста"
+                  value={test_id}
+                  onChange={(e) => setTest_id(e.target.value)}
+                ></input>
+              </label>
               <label className="label">
                 Заголовок
                 <input
@@ -147,18 +163,10 @@ function test_admin({ URL }) {
                   onChange={(e) => setDescriptionUpdata(e.target.value)}
                 ></input>
               </label>
-              {/* <label className="label">
-              ID теста
-              <input
-                type="text"
-                placeholder="ID теста"
-                value={test_id}
-                onChange={(e) => setTest_id(e.target.value)}
-              ></input>
-            </label> */}
               <button className="btn_submit_admin" onClick={UpdataTest}>
                 изменить тест
               </button>
+              <p>{massageTestUpdata}</p>
             </div>
           </div>
           <div className="fun">
@@ -180,6 +188,7 @@ function test_admin({ URL }) {
               >
                 удалить тест
               </button>
+              <p>{massageIsDeleting}</p>
             </div>
           </div>
           <div className="fun">
@@ -216,6 +225,7 @@ function test_admin({ URL }) {
               <button className="btn_submit_admin" onClick={CreateTest}>
                 создать тест
               </button>
+              <p>{massageCreateTest}</p>
             </div>
           </div>
         </div>

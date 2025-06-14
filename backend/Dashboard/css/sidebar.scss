@@ -25,11 +25,9 @@
 
 // боковое меню
 .sidebar {
-  //   position: fixed;
   margin-right: 1rem;
   padding: 1rem;
   width: 200px;
-  // height: 100%;
   background-color: #333;
 
   ul {
@@ -88,11 +86,16 @@ input {
 
 .btn_submit_admin {
   padding: 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 0.5rem;
   border-radius: 0.5rem;
   background-color: #333;
   color: #fff;
   cursor: pointer;
+}
+
+p {
+  margin-left: 1rem;
+  margin-bottom: 4rem;
 }
 
 table {
