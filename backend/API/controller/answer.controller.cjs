@@ -25,12 +25,8 @@ class answersController {
 
     // проверить и изменить 
     async updataUser(req, res) {
-        const { question_id_Updata,
-            textUpdata,
-            correctUpdata } = req.body;
-        const user = await bd.query('UPDATE answers SET question_id = $1, text = $2, is_correct = $4 WHERE answer_id = $4 RETURNING *', [question_id_Updata,
-            textUpdata,
-            correctUpdata]);
+        const { question_id_Updata, textUpdata, correctUpdata, answer_id_Updata } = req.body;
+        const user = await bd.query('UPDATE answers SET question_id = $1, text = $2, is_correct = $3 WHERE answer_id = $4 RETURNING *', [question_id_Updata, textUpdata, correctUpdata, answer_id_Updata]);
         res.json(user.rows);
     }
 

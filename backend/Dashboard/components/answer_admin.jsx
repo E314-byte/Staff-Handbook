@@ -21,6 +21,7 @@ function answer_admin({ URL }) {
   const UpdataAnswer = async () => {
     try {
       const response = await axios.put("http://localhost:8080/api/answer", {
+        answer_id_Updata,
         question_id_Updata,
         textUpdata,
         correctUpdata,
@@ -100,15 +101,15 @@ function answer_admin({ URL }) {
           <h1>Изменения данных ответа</h1>
           <div className="input_parameters">
             {/* <br /> */}
-            {/* <label className="label">
+            <label className="label">
               ID Ответа
               <input
                 type="text"
                 placeholder="ID Ответа"
-                value={question_id_Updata}
-                onChange={(e) => setQuestion_id_Updata(e.target.value)}
+                value={answer_id_Updata}
+                onChange={(e) => setAnswer_id_Updata(e.target.value)}
               ></input>
-            </label> */}
+            </label>
             <label className="label">
               ID Вопроса
               <input
