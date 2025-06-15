@@ -11,7 +11,7 @@ class categoriesController {
     }
     async getOneCategories(req, res) {
         const categories_id = req.params.categories_id;
-        const categories = await bd.query('SELECT * FROM categories WHERE categories_id = $1', [categories]);
+        const categories = await bd.query('SELECT * FROM categories WHERE categories_id = $1', [categories_id]);
         res.json(categories.rows);
     }
     async updataCategories(req, res) {
@@ -20,7 +20,7 @@ class categoriesController {
         res.json(categories.rows);
     }
     async deleteCategories(req, res) {
-        const categories_id = req.params.categories_id_id;
+        const categories_id = req.params.categories_id;
         const categories = await bd.query('DELETE FROM categories WHERE categories_id = $1', [categories_id]);
         res.json(categories.rows);
     }

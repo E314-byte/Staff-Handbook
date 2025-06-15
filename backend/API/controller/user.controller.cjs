@@ -2,8 +2,7 @@ const bd = require('../../bd.cjs');
 class userController {
     async createUser(req, res) {
         const { username_CreateUser, email_CreateUser, password_hash_CreateUser, } = req.body;
-        const newUsers = await bd.query('INSERT INTO users ( username, email, password_hash ) values ($1, $2, $3) RETURNING *', [username_CreateUser, email_CreateUser, password_hash_CreateUser,]);
-        console.log(username1, email1, password_hash1);
+        const newUsers = await bd.query('INSERT INTO users ( username, email, password_hash ) values ($1, $2, $3) RETURNING *', [username_CreateUser, email_CreateUser, password_hash_CreateUser]);
         res.json(newUsers.rows);
     }
     async getUser(req, res) {

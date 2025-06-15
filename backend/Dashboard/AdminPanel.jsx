@@ -5,7 +5,7 @@ import axios from "axios";
 // import Test_admin from "./components/test_admin";
 // import Question_admin from "./components/question_admin";
 // import Answer_admin from "./components/answer_admin";
-import "./css/sidebar.scss";
+import "./css/adminPanel.scss";
 
 function AdminPanel() {
   const src = "http://localhost:8080/api/user/";
@@ -78,27 +78,27 @@ function AdminPanel() {
           <ul>
             <li>
               <Link to="/admin/user_admin">
-                <p>Пользователь</p>
+                <div className="admin_panel_items">Пользователь</div>
               </Link>
             </li>
-            {/* <li>
-              <Link to="/admin/categoties_admin">
-                <p>Категории тестов</p>
+            <li>
+              <Link to="/admin/categories_admin">
+                <div className="admin_panel_items">Категории тестов</div>
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link to="/admin/test_admin">
-                <p>Тесты</p>
+                <div className="admin_panel_items">Тесты</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/question_admin">
-                <p>Вопросы</p>
+                <div className="admin_panel_items">Вопросы</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/answer_admin">
-                <p>Ответы</p>
+                <div className="admin_panel_items">Ответы</div>
               </Link>
             </li>
           </ul>

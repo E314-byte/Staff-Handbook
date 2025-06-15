@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../css/sidebar.scss";
+import "../css/adminPanel.scss";
 
 function test_admin({ URL }) {
   const src = "http://localhost:8080/api/test/";
@@ -80,27 +80,27 @@ function test_admin({ URL }) {
           <ul>
             <li>
               <Link to="/admin/user_admin">
-                <div>Пользователь</div>
+                <div className="admin_panel_items">Пользователь</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/categories_admin">
-                <div>Категории тестов</div>
+                <div className="admin_panel_items">Категории тестов</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/test_admin">
-                <div>Тесты</div>
+                <div className="admin_panel_items">Тесты</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/question_admin">
-                <div>Вопросы</div>
+                <div className="admin_panel_items">Вопросы</div>
               </Link>
             </li>
             <li>
               <Link to="/admin/answer_admin">
-                <div>Ответы</div>
+                <div className="admin_panel_items">Ответы</div>
               </Link>
             </li>
           </ul>
