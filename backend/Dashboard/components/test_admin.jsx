@@ -54,7 +54,7 @@ function test_admin({ URL }) {
   // Создание теста
   const [titleCreate, setTitleCreate] = useState("");
   const [descriptionCreate, setDescriptionCreate] = useState("");
-  // const [password_hash1, setPassword_hash1] = useState("");
+  const [category_id_CreateTest, setCategory_id_CreateTest] = useState("");
   const [massageCreateTest, setMassageCreateTest] = useState("");
 
   const CreateTest = async () => {
@@ -213,15 +213,15 @@ function test_admin({ URL }) {
                   onChange={(e) => setDescriptionCreate(e.target.value)}
                 ></input>
               </label>
-              {/* <label className="label">
-              Пароль
-              <input
-                type="password"
-                placeholder="пароль"
-                value={password_hash1}
-                onChange={(e) => setPassword_hash1(e.target.value)}
-              ></input>
-            </label> */}
+              <label className="label">
+                ID категории
+                <input
+                  type="test"
+                  placeholder="ID категории"
+                  value={category_id_CreateTest}
+                  onChange={(e) => setCategory_id_CreateTest(e.target.value)}
+                ></input>
+              </label>
               <button className="btn_submit_admin" onClick={CreateTest}>
                 создать тест
               </button>
