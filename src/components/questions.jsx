@@ -21,7 +21,7 @@ function Questions({ URL }) {
   // прописать
   const sendData = () => {
     try {
-      axios.post("http://localhost:8080/point/sum/", {
+      axios.post("http://localhost:8080/point/sum", {
         test_id: Params.id,
         answer_select,
       });
