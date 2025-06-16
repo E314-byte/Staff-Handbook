@@ -7,6 +7,8 @@ import Reference_Material from "./pages/reference_material";
 import Staff_Test from "./pages/staff_test";
 import Questions from "./components/questions";
 import Interactive_tasks from "./pages/Interactive_tasks";
+import User_page from "./pages/user_page";
+import Sum_point from "./pages/sum_point";
 /* админ панель */
 import AdminPanel from "../backend/Dashboard/AdminPanel";
 import User_admin from "../backend/Dashboard/components/user_admin";
@@ -26,6 +28,8 @@ function App() {
         <Route path="/test" element={<Staff_Test URL={"test"} />} />
         <Route path="/questions/:id" element={<Questions URL={"question"} />} />
         <Route path="/interactive_tasks" element={<Interactive_tasks />} />
+        <Route path="/profile" element={<User_page />} />
+        <Route path="/sum_point" element={<Sum_point />} />
         {/* админ панель */}
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/admin/user_admin" element={<User_admin />} />

@@ -4,7 +4,8 @@ const userRouter = require('./API/routes/user.routers.cjs');
 const questionRouter = require('./API/routes/question.routers.cjs');
 const testsRouter = require('./API/routes/tests.routers.cjs');
 const answerRouter = require('./API/routes/answer.routers.cjs');
-const categoriesRouter = require('./API/routes/categories.routers.cjs')
+const categoriesRouter = require('./API/routes/categories.routers.cjs');
+const resultsRouter = require('./API/routes/results.routers.cjs')
 const registration_and_Login_Router = require('./API/routes/registration_and_login.routers.cjs');
 const sumPointsRouter = require('./API/routes/sumPoints.routers.cjs');
 
@@ -21,6 +22,7 @@ app.use('/api', questionRouter);
 app.use('/api', testsRouter);
 app.use('/api', answerRouter);
 app.use('/api', categoriesRouter);
+app.use('/api', resultsRouter)
 app.use('/auth', registration_and_Login_Router);
 
 // обработчик суммы очков пользователя

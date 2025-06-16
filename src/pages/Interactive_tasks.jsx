@@ -3,6 +3,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import Iframe from "react-iframe";
 import "../css/interactive_tasks.scss";
+import "../css/staff_test.scss";
 
 function Interactive_tasks() {
   return (

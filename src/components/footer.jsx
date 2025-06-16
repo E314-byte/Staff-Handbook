@@ -23,7 +23,9 @@ function Footer() {
           <div className="menu-item">
             <Link to="/interactive_tasks">Интерактивные задания</Link>
           </div>
-          <div className="menu-item">Профиль</div>
+          <div className="menu-item">
+            <Link to="/profile">Профиль</Link>
+          </div>
         </div>
       </footer>
     </>

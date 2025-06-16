@@ -1,0 +1,15 @@
+.container_profile {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100vh;
+}
+
+.content_profile {
+  padding: 2rem;
+  background-color: #ac7777;
+  border-radius: 2rem;
+}
