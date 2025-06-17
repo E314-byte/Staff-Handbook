@@ -30,8 +30,13 @@ function Registration_and_Login() {
         email,
         password_hash,
       });
-      console.log(response.data);
-      window.user = response.data;
+      // console.log(response.data);
+      // здесь записывается пользователь в localStorage
+      const user = { id_user: response.data };
+      localStorage.setItem("user", JSON.stringify(user));
+      const user_user_string = localStorage.getItem("user");
+      const user_user = JSON.parse(user_user_string);
+      console.log("id пользователя, который зашел", user_user.id_user.user_id);
       setMessage("Вход открыт");
     } catch (error) {
       setMessage("Ошибка входа");
