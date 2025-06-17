@@ -30,6 +30,8 @@ function Registration_and_Login() {
         email,
         password_hash,
       });
+      console.log(response.data);
+      window.user = response.data;
       setMessage("Вход открыт");
     } catch (error) {
       setMessage("Ошибка входа");

@@ -32,7 +32,8 @@ class Registration_and_Login {
             // bd.release();
             if (result.rows.length > 0) {
                 // res.send({ message 'Login successful', user_id: result.rows[0].user_id });
-                console.log('Пользователь зашел');
+                console.log('Пользователь зашел', result.rows[0].user_id);
+                res.json(result.rows[0])
 
             } else {
                 res.status(401).json({ message: 'Invalid credentials' });

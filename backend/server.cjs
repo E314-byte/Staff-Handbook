@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+let cookieParser = require('cookie-parser');
 const userRouter = require('./API/routes/user.routers.cjs');
 const questionRouter = require('./API/routes/question.routers.cjs');
 const testsRouter = require('./API/routes/tests.routers.cjs');
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 8080;
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 app.use(cors())
 
 

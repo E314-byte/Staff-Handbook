@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/profile.scss";
 function User_page() {
+  
   return (
     <>
       <section>

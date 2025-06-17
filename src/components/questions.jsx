@@ -4,6 +4,7 @@ import axios from "axios";
 import Answers from "../components/answers";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import Sum_point from "../pages/sum_point";
 import "../css/staff_test.scss";
 
 function Questions({ URL }) {
@@ -18,16 +19,22 @@ function Questions({ URL }) {
   };
   console.log(answer_select);
 
+  const [POST, setPOST] = useState(null);
+
   // прописать
-  const sendData = () => {
+  const sendData = async () => {
     try {
-      axios.post("http://localhost:8080/point/sum", {
+      const POST = await axios.post("http://localhost:8080/point/sum", {
         test_id: Params.id,
         answer_select,
+        user_id: window.user.user_id,
       });
+      setPOST(POST);
+      console.log("ответ от серва с суммой очков", POST);
+
       console.log("Данные успешно отправлены");
     } catch (error) {
-      console.error("Ошибка при отправке");
+      console.error("Ошибка при отправке", error);
     }
   };
 
@@ -48,8 +55,17 @@ function Questions({ URL }) {
     setQuestionsAndTest(qat);
   }, [Questions, Params.id]);
 
-  return (
-    <>
+  if (POST) {
+    return (
+      <Sum_point
+        titleTest={POST.data.titleTest}
+        total_points={POST.data.total_points}
+        PointsALL={POST.data.PointsALL}
+        answerQuestions={POST.data.answerQuestions}
+      />
+    );
+  } else {
+    return (
       <section>
         <Header />
         {QuestionsAndTest.map((question) => (
@@ -70,8 +86,42 @@ function Questions({ URL }) {
         </button>
         <Footer />
       </section>
-    </>
-  );
+    );
+  }
+
+  // return (
+  //   <>
+
+  //     <section>
+  //       <Header />
+  //       {QuestionsAndTest.map((question) => (
+  //         <div key={question.question_id} className="question">
+  //           <div>
+  //             <h1>{question.text}</h1>
+  //             <div>{question.points}</div>
+  //           </div>
+  //           <hr />
+  //           <Answers
+  //             setTest={question.question_id}
+  //             OnSelect={handleSelectAnswer}
+  //           />
+  //         </div>
+  //       ))}
+  //       <button className="button_test" type="button" onClick={sendData}>
+  //         Подтвердить
+  //       </button>
+  //       <Footer />
+  //     </section>
+  //     {POST && (
+  //       <Sum_point
+  //         titleTest={POST.data.titleTest}
+  //         total_points={POST.data.total_points}
+  //         PointsALL={POST.data.PointsALL}
+  //         answerQuestions={POST.data.answerQuestions}
+  //       />
+  //     )}
+  //   </>
+  // );
 }
 
 export default Questions;
