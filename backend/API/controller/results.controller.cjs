@@ -1,9 +1,12 @@
 const bd = require('../../bd.cjs');
-// const cookieParser = require('cookie-parser')
+
 class resultsController {
     async createResults(req, res) {
         const { user_id_Create, test_id_Create, score_Create, max_score_Create } = req.body;
         console.log('ответ на ручке с результатами', req.body);
+        const result = req.session.result;
+        console.log(result);
+
 
         const newResults = await bd.query('INSERT INTO results (  user_id, test_id, score, max_score ) values ($1, $2, $3, $4) RETURNING *', [user_id_Create, test_id_Create, score_Create, max_score_Create]);
         res.json(newResults.rows);
@@ -11,7 +14,6 @@ class resultsController {
     async getResults(req, res) {
         const results = await bd.query('SELECT * FROM results');
         res.json(results.rows);
-        req.cookies
     }
     async getOneResults(req, res) {
         const results_id = req.params.results_id;

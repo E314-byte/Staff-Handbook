@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "../css/sum_point.scss";
-import Questions from "../components/questions";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import "../css/sum_point.scss";
 
 function Sum_point({ titleTest, total_points, PointsALL, answerQuestions }) {
   return (
@@ -10,17 +9,17 @@ function Sum_point({ titleTest, total_points, PointsALL, answerQuestions }) {
       <Header />
       <section className="sum_point_section">
         <div>
-          <div>{titleTest}</div>
-          <div>
+          <h1>{titleTest}</h1>
+          <div className="counter_point">
             {total_points}/{PointsALL}
           </div>
           <div>
             {answerQuestions.map((Questions) => (
               <div key={Questions.question_id}>
-                <div>
+                <div className="questions_point">
                   {/* <span>✗</span> */}
-                  {Questions.titleQuestion}
                   {Questions.correctAnswer ? "✓" : "✗"}
+                  {Questions.titleQuestion}
                 </div>
                 <div>{/* <span>✓</span>вопрос */}</div>
               </div>
