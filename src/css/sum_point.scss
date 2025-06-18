@@ -6,11 +6,24 @@
   justify-content: center;
   align-items: center;
 }
+.ResultTest {
+  font-size: 30px;
+  margin-bottom: 1rem;
+  border-bottom: #333 solid 2px;
+  max-width: fit-content;
+}
 
 .counter_point {
+  font-size: 24px;
   margin: 1rem;
 }
 
 .questions_point {
   padding: 1rem;
+}
+
+.correctAnswer {
+  padding: 1rem;
+  border-radius: 1rem;
+  // background-color: red;
 }

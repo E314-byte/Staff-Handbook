@@ -9,6 +9,7 @@ function Sum_point({ titleTest, total_points, PointsALL, answerQuestions }) {
       <Header />
       <section className="sum_point_section">
         <div>
+          <h1 className="ResultTest">Результаты теста</h1>
           <h1>{titleTest}</h1>
           <div className="counter_point">
             {total_points}/{PointsALL}
@@ -18,10 +19,11 @@ function Sum_point({ titleTest, total_points, PointsALL, answerQuestions }) {
               <div key={Questions.question_id}>
                 <div className="questions_point">
                   {/* <span>✗</span> */}
-                  {Questions.correctAnswer ? "✓" : "✗"}
+                  <span className="correctAnswer">
+                    {Questions.correctAnswer ? "✓" : "✗"}
+                  </span>
                   {Questions.titleQuestion}
                 </div>
-                <div>{/* <span>✓</span>вопрос */}</div>
               </div>
             ))}
           </div>

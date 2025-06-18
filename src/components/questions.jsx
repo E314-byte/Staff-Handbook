@@ -23,11 +23,13 @@ function Questions({ URL }) {
 
   // прописать
   const sendData = async () => {
+    const user_user_string = localStorage.getItem("user");
+    const user_user = JSON.parse(user_user_string);
     try {
       const POST = await axios.post("http://localhost:8080/point/sum", {
         test_id: Params.id,
         answer_select,
-        user_id: window.user.user_id,
+        user_id: user_user.id_user.user_id,
       });
       setPOST(POST);
       console.log("ответ от серва с суммой очков", POST);
