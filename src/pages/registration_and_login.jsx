@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../css/registration_and_login.scss";
 
 function Registration_and_Login() {
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password_hash, setPassword_hash] = useState("");
@@ -18,6 +20,7 @@ function Registration_and_Login() {
         { username, email, password_hash }
       );
       setMessage("Регистрация удалась");
+      navigate("/");
     } catch (error) {
       setMessage("Регистрация не удалась");
     }
@@ -38,6 +41,7 @@ function Registration_and_Login() {
       const user_user = JSON.parse(user_user_string);
       console.log("id пользователя, который зашел", user_user.id_user.user_id);
       setMessage("Вход открыт");
+      navigate("/", { replace: true });
     } catch (error) {
       setMessage("Ошибка входа");
     }
@@ -66,12 +70,12 @@ function Registration_and_Login() {
             value={password_hash}
             onChange={(e) => setPassword_hash(e.target.value)}
           />
-          <Link to="/">
-            <button onClick={handleLogin}>Вход</button>
-          </Link>
-          <Link to="/">
-            <button onClick={handleRegister}>Регистрация</button>
-          </Link>
+          {/* <Link to="/"> */}
+          <button onClick={handleLogin}>Вход</button>
+          {/* </Link> */}
+          {/* <Link to="/"> */}
+          <button onClick={handleRegister}>Регистрация</button>
+          {/* </Link> */}
           <p>{message}</p>
         </div>
       </div>

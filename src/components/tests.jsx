@@ -33,7 +33,7 @@ function Tests({ URL }) {
         <div className="answers">
           {Tests.map((tests) => (
             <label key={tests.test_id} className="answer">
-              <Link to={`/questions/${tests.test_id}`}>
+              <Link to={`/test/questions/${tests.test_id}`}>
                 <div>
                   <h1>{tests.title}</h1>
                   <div>{tests.description}</div>

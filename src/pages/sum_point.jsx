@@ -9,7 +9,7 @@ function Sum_point({ titleTest, total_points, PointsALL, answerQuestions }) {
       <Header />
       <section className="sum_point_section">
         <div>
-          <h1 className="ResultTest">Результаты теста</h1>
+          <h1 className="ResultTest">Результаты тренажёра</h1>
           <h1>{titleTest}</h1>
           <div className="counter_point">
             {total_points}/{PointsALL}

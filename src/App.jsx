@@ -26,7 +26,7 @@ function App() {
         <Route path="/login" element={<Registration_and_Login />} />
         <Route path="/reference_material" element={<Reference_Material />} />
         <Route path="/test" element={<Staff_Test URL={"test"} />} />
-        <Route path="/questions/:id" element={<Questions URL={"question"} />} />
+        <Route path="/test/questions/:id" element={<Questions />} />
         <Route path="/interactive_tasks" element={<Interactive_tasks />} />
         <Route path="/profile" element={<User_page />} />
         <Route path="/sum_point" element={<Sum_point />} />

@@ -53,7 +53,7 @@ app.use('/auth', registration_and_Login_Router);
 app.use('/point', sumPointsRouter);
 
 app.listen(PORT, () => {
-    console.log(`Server listens http://${host}:${PORT}`)
+    // console.log(`Server listens http://${host}:${PORT}`)
     console.log(`Сервер запушен на порту: ${PORT}`);
 
 });

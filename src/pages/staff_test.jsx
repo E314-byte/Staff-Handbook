@@ -11,7 +11,6 @@ function Staff_Test() {
     <>
       <Header />
       <Tests URL={"tests"} />
-      
       <Footer />
     </>
   );

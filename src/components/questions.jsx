@@ -21,7 +21,6 @@ function Questions({ URL }) {
 
   const [POST, setPOST] = useState(null);
 
-  // прописать
   const sendData = async () => {
     const user_user_string = localStorage.getItem("user");
     const user_user = JSON.parse(user_user_string);
@@ -40,7 +39,7 @@ function Questions({ URL }) {
     }
   };
 
-  const src = "http://localhost:8080/api/" + URL + "/";
+  const src = "http://localhost:8080/api/question/";
   const [Questions, setQuestions] = useState([]);
   useEffect(() => {
     axios.get(src).then((data) => {
@@ -51,9 +50,6 @@ function Questions({ URL }) {
 
   useEffect(() => {
     const qat = Questions.filter((sss) => sss.test_id == Params.id);
-    // console.log(qat);
-    // console.log(setQuestionsAndTest);
-    // console.log(QuestionsAndTest);
     setQuestionsAndTest(qat);
   }, [Questions, Params.id]);
 
