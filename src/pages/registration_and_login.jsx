@@ -20,7 +20,7 @@ function Registration_and_Login() {
         { username, email, password_hash }
       );
       setMessage("Регистрация удалась");
-      navigate("/");
+      navigate("/home", { replace: true });
     } catch (error) {
       setMessage("Регистрация не удалась");
     }
@@ -33,15 +33,15 @@ function Registration_and_Login() {
         email,
         password_hash,
       });
-      // console.log(response.data);
+      console.log("response.data", response.data);
       // здесь записывается пользователь в localStorage
-      const user = { id_user: response.data };
+      const user = { user_id: response.data.user_id, username: username };
       localStorage.setItem("user", JSON.stringify(user));
       const user_user_string = localStorage.getItem("user");
       const user_user = JSON.parse(user_user_string);
-      console.log("id пользователя, который зашел", user_user.id_user.user_id);
+      console.log("id пользователя, который зашел", user_user.user_id.user_id);
       setMessage("Вход открыт");
-      navigate("/", { replace: true });
+      navigate("/home", { replace: true });
     } catch (error) {
       setMessage("Ошибка входа");
     }
@@ -70,13 +70,12 @@ function Registration_and_Login() {
             value={password_hash}
             onChange={(e) => setPassword_hash(e.target.value)}
           />
-          {/* <Link to="/"> */}
+
           <button onClick={handleLogin}>Вход</button>
-          {/* </Link> */}
-          {/* <Link to="/"> */}
+
           <button onClick={handleRegister}>Регистрация</button>
-          {/* </Link> */}
-          <p>{message}</p>
+
+          <p className="error_massage">{message}</p>
         </div>
       </div>
     </>

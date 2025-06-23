@@ -28,7 +28,7 @@ function Questions({ URL }) {
       const POST = await axios.post("http://localhost:8080/point/sum", {
         test_id: Params.id,
         answer_select,
-        user_id: user_user.id_user.user_id,
+        user_id: user_user.user_id,
       });
       setPOST(POST);
       console.log("ответ от серва с суммой очков", POST);
@@ -43,7 +43,7 @@ function Questions({ URL }) {
   const [Questions, setQuestions] = useState([]);
   useEffect(() => {
     axios.get(src).then((data) => {
-      console.log(data.data);
+      console.log("запрос с вопросами для теста", data.data);
       setQuestions(data.data);
     });
   }, []);

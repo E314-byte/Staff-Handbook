@@ -7,12 +7,12 @@ function Header() {
   return (
     <>
       <header>
-        <Link to="/">
+        <Link to="/home">
           <img src={logo} className="logo" alt="React logo" />
         </Link>
         <div className="header-menu">
           <div className="menu-item">
-            <Link to="/">Главная</Link>
+            <Link to="/home">Главная</Link>
           </div>
           <div className="menu-item">
             <Link to="/test">Тест</Link>

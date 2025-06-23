@@ -21,9 +21,9 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home_Page />} />
+        <Route path="/home" element={<Home_Page />} />
         {/* основные страницы/компаненты */}
-        <Route path="/login" element={<Registration_and_Login />} />
+        <Route path="/" element={<Registration_and_Login />} />
         <Route path="/reference_material" element={<Reference_Material />} />
         <Route path="/test" element={<Staff_Test URL={"test"} />} />
         <Route path="/test/questions/:id" element={<Questions />} />
