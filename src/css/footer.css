@@ -1,0 +1,33 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #333333;
+  color: #fff;
+  margin-top: 2rem;
+}
+
+.logo {
+  height: 3rem;
+  width: auto;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.header-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.menu-item:hover {
+  border-bottom: 1px solid #00d8ff;
+}/*# sourceMappingURL=footer.css.map */

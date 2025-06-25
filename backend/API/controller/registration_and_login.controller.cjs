@@ -2,12 +2,12 @@ const bd = require('../../bd.cjs');
 
 class Registration_and_Login {
     async registration(req, res) {
-        const { username, email, password_hash } = req.body;
+        const { username, email, password_hash, role_id } = req.body;
         try {
             await bd.query('BEGIN');
             const result = await bd.query(
-                'INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3) RETURNING *',
-                [username, email, password_hash]
+                'INSERT INTO users (username, email, password_hash, role_id) VALUES ($1, $2, $3, $4) RETURNING *',
+                [username, email, password_hash, role_id]
             );
             await bd.query('COMMIT');
             console.log('Пользователь зареган', result.rows[0].user_id);

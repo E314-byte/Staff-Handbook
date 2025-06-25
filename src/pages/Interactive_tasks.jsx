@@ -22,7 +22,7 @@ function Interactive_tasks() {
   return (
     <>
       <Header />
-      
+
       <section>
         <div className="interactive_task">
           <iframe
@@ -35,19 +35,21 @@ function Interactive_tasks() {
             title="Выберете правильный провод"
             ref={ref}
           ></iframe>
-          {/* <Iframe
-            src="https://udoba.org/h5p/embed/209999"
-            width="1403"
-            height="512"
+        </div>
+        <div className="interactive_task">
+          <iframe
+            src="https://udoba.org/h5p/embed/219860"
+            width="1223"
+            height="375"
             frameborder="0"
             allowfullscreen="allowfullscreen"
             allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"
-            title="Вопрос правда или ложь по сборке компьютера"
-          ></Iframe>
+            title="Перетащите изображения слева, чтобы сопоставить их с соответствующими изображениями справа."
+          ></iframe>
           <script
             src="https://udoba.org/sites/all/modules/h5p/library/js/h5p-resizer.js"
             charset="UTF-8"
-          ></script> */}
+          ></script>
         </div>
         <div className="interactive_task">
           <iframe
@@ -66,9 +68,9 @@ function Interactive_tasks() {
         </div>
         <div className="interactive_task">
           <iframe
-            src="https://udoba.org/h5p/embed/210001"
+            src="https://udoba.org/h5p/embed/210037"
             width="1403"
-            height="996"
+            height="427"
             frameborder="0"
             allowfullscreen="allowfullscreen"
             allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"
@@ -81,9 +83,25 @@ function Interactive_tasks() {
         </div>
         <div className="interactive_task">
           <iframe
-            src="https://udoba.org/h5p/embed/210037"
+            src="https://udoba.org/h5p/embed/219857"
+            width="1223"
+            height="1079"
+            frameborder="0"
+            allowfullscreen="allowfullscreen"
+            allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"
+            title="Найти"
+          ></iframe>
+          <script
+            src="https://udoba.org/sites/all/modules/h5p/library/js/h5p-resizer.js"
+            charset="UTF-8"
+          ></script>
+        </div>
+        {/* Видио */}
+        <div className="interactive_task">
+          <iframe
+            src="https://udoba.org/h5p/embed/210001"
             width="1403"
-            height="427"
+            height="996"
             frameborder="0"
             allowfullscreen="allowfullscreen"
             allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"

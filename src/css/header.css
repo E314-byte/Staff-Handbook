@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  height: 3rem;
+  width: auto;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.header-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.menu-item:hover {
+  border-bottom: 1px solid #00d8ff;
+}/*# sourceMappingURL=header.css.map */

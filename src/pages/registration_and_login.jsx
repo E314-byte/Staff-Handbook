@@ -17,7 +17,7 @@ function Registration_and_Login() {
     try {
       const response = await axios.post(
         "http://localhost:8080/auth/registration",
-        { username, email, password_hash }
+        { username, email, password_hash, role_id: 1 }
       );
       setMessage("Регистрация удалась");
       navigate("/home", { replace: true });
@@ -56,22 +56,24 @@ function Registration_and_Login() {
             type="text"
             placeholder="Username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value.trim())}
           />
           <input
             type="email"
             placeholder="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value.trim())}
           />
           <input
             type="password"
             placeholder="Password"
             value={password_hash}
-            onChange={(e) => setPassword_hash(e.target.value)}
+            onChange={(e) => setPassword_hash(e.target.value.trim())}
           />
 
-          <button onClick={handleLogin}>Вход</button>
+          <button onClick={handleLogin} className="login_in">
+            Вход
+          </button>
 
           <button onClick={handleRegister}>Регистрация</button>
 

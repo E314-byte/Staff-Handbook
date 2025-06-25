@@ -1,0 +1,17 @@
+.container_profile {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100vh;
+}
+
+.content_profile {
+  margin: 1rem;
+  line-height: 2rem;
+  padding: 2rem;
+  background-color: #948e8e;
+  border-radius: 2rem;
+}/*# sourceMappingURL=profile.css.map */

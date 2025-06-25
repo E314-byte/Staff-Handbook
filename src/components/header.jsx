@@ -11,21 +11,21 @@ function Header() {
           <img src={logo} className="logo" alt="React logo" />
         </Link>
         <div className="header-menu">
-          <div className="menu-item">
-            <Link to="/home">Главная</Link>
-          </div>
-          <div className="menu-item">
-            <Link to="/test">Тест</Link>
-          </div>
-          <div className="menu-item">
-            <Link to="/reference_material">Справочный материал</Link>
-          </div>
-          <div className="menu-item">
-            <Link to="/interactive_tasks">Интерактивные задания</Link>
-          </div>
-          <div className="menu-item">
-            <Link to="/profile">Профиль</Link>
-          </div>
+          <Link to="/home">
+            <div className="menu-item">Главная</div>
+          </Link>
+          <Link to="/test">
+            <div className="menu-item">Тесты</div>
+          </Link>
+          <Link to="/reference_material">
+            <div className="menu-item">Справочный материал</div>
+          </Link>
+          <Link to="/interactive_tasks">
+            <div className="menu-item">Интерактивные задания</div>
+          </Link>
+          <Link to="/profile">
+            <div className="menu-item">Профиль</div>
+          </Link>
         </div>
       </header>
     </>

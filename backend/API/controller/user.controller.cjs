@@ -1,8 +1,9 @@
 const bd = require('../../bd.cjs');
 class userController {
     async createUser(req, res) {
-        const { username_CreateUser, email_CreateUser, password_hash_CreateUser, } = req.body;
-        const newUsers = await bd.query('INSERT INTO users ( username, email, password_hash ) values ($1, $2, $3) RETURNING *', [username_CreateUser, email_CreateUser, password_hash_CreateUser]);
+        const { username_CreateUser, email_CreateUser, password_hash_CreateUser } = req.body;
+        // const role_id = "1";
+        const newUsers = await bd.query('INSERT INTO users ( username, email, password_hash, role_id ) values ($1, $2, $3, $4) RETURNING *', [username_CreateUser, email_CreateUser, password_hash_CreateUser]);
         res.json(newUsers.rows);
     }
     async getUser(req, res) {
@@ -21,6 +22,7 @@ class userController {
     }
     async deleteUser(req, res) {
         const user_id = req.params.user_id;
+        const userResults = await bd.query('DELETE FROM results WHERE user_id = $1', [user_id]);
         const user = await bd.query('DELETE FROM users WHERE user_id = $1', [user_id]);
         res.json(user.rows);
     }

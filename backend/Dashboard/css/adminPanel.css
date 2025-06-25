@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100vh;
+  justify-content: flex-start;
+}
+
+.h1_adminPanel {
+  color: #fff;
+  margin: 1rem 0rem 2rem 0rem;
+}
+
+.admin_panel_items {
+  cursor: pointer;
+  padding: 0.7rem;
+  margin: 1rem;
+  border-bottom: rgba(91, 91, 91, 0.6862745098) solid 2px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.reques_fun_queries_database {
+  margin: 0rem 4rem;
+}
+
+.sidebar {
+  margin-right: 1rem;
+  padding: 1rem;
+  width: 200px;
+  background-color: #333;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.input_parameters {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: stretch;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.fun {
+  margin: 2rem;
+}
+
+input {
+  padding: 20px 0px 5px 0px;
+  border: none;
+  border-bottom: #333 1px solid;
+}
+input:focus {
+  outline: none;
+}
+
+.btn_submit_admin {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+p {
+  margin-left: 1rem;
+  margin-bottom: 4rem;
+}
+
+table {
+  margin: 2rem;
+}
+table th,
+table td {
+  max-width: 600px;
+  padding: 1rem;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(91, 91, 91, 0.6862745098);
+}
+
+.table_user_admin {
+  margin: 2rem;
+}/*# sourceMappingURL=adminPanel.css.map */
