@@ -96,6 +96,21 @@ function Interactive_tasks() {
             charset="UTF-8"
           ></script>
         </div>
+        <div className="interactive_task">
+          <iframe
+            src="https://udoba.org/h5p/embed/64119"
+            width="1223"
+            height="1143"
+            frameborder="0"
+            allowfullscreen="allowfullscreen"
+            allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"
+            title="Устройство компьютера"
+          ></iframe>
+          <script
+            src="https://udoba.org/sites/all/modules/h5p/library/js/h5p-resizer.js"
+            charset="UTF-8"
+          ></script>
+        </div>
         {/* Видио */}
         <div className="interactive_task">
           <iframe
